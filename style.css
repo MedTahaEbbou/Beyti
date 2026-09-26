@@ -120,10 +120,10 @@ html[dir="ltr"] .flip-ltr {
 .desktop-dock {
   display: none;
   position: fixed;
-  top: 24px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1000;
+  z-index: 10; /* Set behind the phone so phone stays in front when scrolling */
   background: rgba(11, 20, 44, 0.85);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
@@ -133,6 +133,7 @@ html[dir="ltr"] .flip-ltr {
   padding: 8px 16px;
   align-items: center;
   gap: 20px;
+  transition: var(--transition-smooth);
 }
 
 .dock-brand {
@@ -221,6 +222,8 @@ html[dir="ltr"] .flip-ltr {
   align-items: center;
   padding: 0;
   perspective: 1200px;
+  position: relative;
+  z-index: 20;
 }
 
 @media (min-width: 900px) {
@@ -236,6 +239,7 @@ html[dir="ltr"] .flip-ltr {
   max-width: 440px;
   background: var(--bg-surface);
   position: relative;
+  z-index: 25;
   overflow: hidden;
   display: flex;
   flex-direction: column;

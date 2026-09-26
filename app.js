@@ -8,7 +8,7 @@
 // ==========================================
 const I18N_DICTIONARY = {
   ar: {
-    tagline: "عاصمة الخدمات المنزلية - نواكشوط",
+    tagline: " الخدمات المنزلية - نواكشوط",
     phoneMode: "شاشة الهاتف",
     fullMode: "كامل الشاشة",
     city: "نواكشوط، موريتانيا",
@@ -518,7 +518,7 @@ const PROVIDERS_DATA = [
     name: "محمد محمود ولد الطالب",
     nameFr: "Mohamed Mahmoud Taleb",
     service: "meera",
-    serviceTitle: "مندوب أسواق وتموين العاصمة",
+    serviceTitle: "مندوب الأسواق والتموين ",
     serviceTitleFr: "Approvisionnement Marché Capitale",
     district: "ksar",
     districtLabel: "لكصر",
