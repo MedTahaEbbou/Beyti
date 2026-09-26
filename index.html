@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>بيتي | Beyti Service - تطبيق الخدمات المنزلية الأول في نواكشوط</title>
+  <meta name="description"
+    content="تطبيق بيتي للخدمات المنزلية في نواكشوط، موريتانيا: تنظيف، سباكة، كهرباء، صيانة، نقل، وطلب ميرة. تتبع فوري وتقييم موثوق.">
+  <meta name="theme-color" content="#091124">
+
+  <!-- Google Fonts: Alexandria & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="theme-futuristic">
+
+  <!-- Desktop Presentation Controls (visible on wider screens) -->
+  <aside class="desktop-dock" id="desktopDock" aria-label="Controls">
+    <div class="dock-brand">
+      <img src="assets/logo.jpg" alt="Beyti Logo" class="dock-logo">
+      <div class="dock-info">
+        <span class="dock-title">بيتي | Beyti Service</span>
+        <span class="dock-tag" data-i18n="tagline"> الخدمات المنزلية - نواكشوط</span>
+      </div>
+    </div>
+    <div class="dock-actions">
+      <button class="dock-btn active" id="btnPhoneView" title="عرض الهاتف الذكي">
+        <i class="fa-solid fa-mobile-screen"></i> <span data-i18n="phoneMode">شاشة الهاتف</span>
+      </button>
+      <button class="dock-btn" id="btnFullView" title="عرض كامل الشاشة">
+        <i class="fa-solid fa-expand"></i> <span data-i18n="fullMode">كامل الشاشة</span>
+      </button>
+      <button class="dock-btn lang-toggle" id="dockLangBtn">
+        <i class="fa-solid fa-globe"></i> <span id="dockLangLabel">Français</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main App Shell Container -->
+  <div class="app-viewport-wrapper" id="viewportWrapper">
+    <main class="mobile-phone-frame" id="phoneFrame">
+
+      <!-- Phone Hardware Bezel Elements -->
+      <div class="phone-notch">
+        <div class="dynamic-island" id="dynamicIsland">
+          <div class="island-content">
+            <span class="island-dot pulse"></span>
+            <span class="island-text" id="islandText">بيتي • خدمة فورية 24/7</span>
+          </div>
+        </div>
+      </div>
+      <div class="phone-speaker"></div>
+
+      <!-- App Status Bar -->
+      <header class="app-status-bar">
+        <span class="status-time" id="statusClock">12:45</span>
+        <div class="status-icons">
+          <i class="fa-solid fa-signal"></i>
+          <i class="fa-solid fa-wifi"></i>
+          <i class="fa-solid fa-battery-full"></i>
+        </div>
+      </header>
+
+      <!-- App Top Navigation Bar -->
+      <nav class="app-header-nav">
+        <div class="brand-row">
+          <div class="brand-meta">
+            <img src="assets/logo.jpg" alt="بيتي - Beyti" class="app-logo-img">
+            <div class="brand-text">
+              <h1 class="brand-name">بيتي <span>Service</span></h1>
+              <p class="brand-city"><i class="fa-solid fa-location-dot"></i> <span data-i18n="city">نواكشوط،
+                  موريتانيا</span></p>
+            </div>
+          </div>
+          <div class="header-actions">
+            <!-- Language Switcher Button -->
+            <button class="icon-chip lang-chip" id="langSwitchBtn" aria-label="تبديل اللغة">
+              <i class="fa-solid fa-language"></i>
+              <span id="currentLangTag">FR</span>
+            </button>
+            <!-- Notifications with 3D ripple badge -->
+            <button class="icon-chip notif-chip" id="notifBtn" aria-label="الإشعارات">
+              <i class="fa-regular fa-bell"></i>
+              <span class="notif-badge">3</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Moughataa District Selector (Location Pill) -->
+        <div class="moughataa-selector-bar">
+          <div class="location-pill-3d" id="locationPill">
+            <i class="fa-solid fa-compass pulse-icon"></i>
+            <span class="pill-label" data-i18n="moughataaLabel">المقاطعة:</span>
+            <select id="moughataaSelect" class="moughataa-dropdown" aria-label="اختر المقاطعة">
+              <option value="all" data-i18n="allNouakchott">كافة مقاطعات نواكشوط</option>
+              <option value="tevragh-zeina" selected data-i18n="tevragh">تفرغ زينة (Tevragh-Zeina)</option>
+              <option value="ksar" data-i18n="ksar">لكصر (Ksar)</option>
+              <option value="arafat" data-i18n="arafat">عرفات (Arafat)</option>
+              <option value="teyarett" data-i18n="teyarett">تيارت (Teyarett)</option>
+              <option value="dar-naim" data-i18n="darNaim">دار النعيم (Dar-Naim)</option>
+              <option value="toujounine" data-i18n="toujounine">توجنين (Toujounine)</option>
+              <option value="riad" data-i18n="riad">الرياض (Riad)</option>
+              <option value="sebkha" data-i18n="sebkha">السبخة (Sebkha)</option>
+              <option value="el-mina" data-i18n="elMina">الميناء (El Mina)</option>
+            </select>
+            <i class="fa-solid fa-chevron-down arrow-indicator"></i>
+          </div>
+        </div>
+
+        <!-- Quick 3D Search & Filter Input -->
+        <div class="search-section-3d">
+          <div class="search-input-wrap">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="serviceSearchInput" placeholder="ابحث عن سباك، كهربائي، تنظيف، ميرة..."
+              data-i18n-ph="searchPlaceholder" autocomplete="off">
+            <button class="filter-badge-btn" id="filterModalBtn" title="تصفية متقدمة">
+              <i class="fa-solid fa-sliders"></i>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Scrollable App Content Container -->
+      <div class="app-scroll-body" id="appScrollBody">
+
+        <!-- ================= TAB 1: HOME (الرئيسية) ================= -->
+        <section class="tab-page active-page" id="tabHome">
+
+          <!-- 3D Holographic Hero Card -->
+          <div class="hero-3d-card tilt-card" id="heroCard">
+            <div class="hero-bg-layer" style="background-image: url('assets/hero.jpg');"></div>
+            <div class="hero-glass-overlay"></div>
+            <div class="hero-content">
+              <div class="hero-badge-pill">
+                <span class="live-dot"></span>
+                <span data-i18n="heroBadge">المنصة الأولى المعتمدة في موريتانيا</span>
+              </div>
+              <h2 class="hero-title" data-i18n="heroTitle">بيتك بأمان مع أفضل حرفيي نواكشوط</h2>
+              <p class="hero-desc" data-i18n="heroDesc">احجز أفضل الفنيين المعتمدين والموثقين، قارن الأسعار، وتتبع طلبك
+                لحظة بلحظة بدقة ثلاثية الأبعاد.</p>
+
+              <div class="hero-btn-row">
+                <button class="btn-3d btn-glow-primary" id="heroOrderNowBtn">
+                  <i class="fa-solid fa-bolt"></i>
+                  <span data-i18n="heroAction">طلب خدمة فورية</span>
+                </button>
+                <button class="btn-3d btn-glass" id="heroMeeraFastBtn">
+                  <i class="fa-solid fa-basket-shopping"></i>
+                  <span data-i18n="meeraFast">طلب ميرة الآن</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Floating 3D Micro-Badges -->
+            <div class="floating-badge badge-top-left">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span data-i18n="verifiedBadge">ضمان الجودة 100%</span>
+            </div>
+            <div class="floating-badge badge-bottom-right">
+              <i class="fa-solid fa-stopwatch"></i>
+              <span data-i18n="fastResponse">استجابة خلال 15 دقيقة</span>
+            </div>
+          </div>
+
+          <!-- Feature Highlights Bar (4 Pillars) -->
+          <div class="features-ticker-3d">
+            <div class="ticker-chip">
+              <i class="fa-solid fa-map-location-dot"></i>
+              <div>
+                <strong data-i18n="feature1Title">تغطية شاملة</strong>
+                <small data-i18n="feature1Desc">كافة مقاطعات نواكشوط</small>
+              </div>
+            </div>
+            <div class="ticker-chip">
+              <i class="fa-solid fa-scale-balanced"></i>
+              <div>
+                <strong data-i18n="feature2Title">مقارنة العروض</strong>
+                <small data-i18n="feature2Desc">أسعار شفافة ومضمونة</small>
+              </div>
+            </div>
+            <div class="ticker-chip">
+              <i class="fa-solid fa-satellite-dish"></i>
+              <div>
+                <strong data-i18n="feature3Title">تتبع مباشر</strong>
+                <small data-i18n="feature3Desc">لحظة بلحظة على الخريطة</small>
+              </div>
+            </div>
+            <div class="ticker-chip">
+              <i class="fa-solid fa-award"></i>
+              <div>
+                <strong data-i18n="feature4Title">تقييم موثق</strong>
+                <small data-i18n="feature4Desc">حرفيون معتمدون وذوو خبرة</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Active Order Quick Widget (Dynamic Tracker preview) -->
+          <div class="active-order-preview-card" id="activeOrderWidget">
+            <div class="order-preview-header">
+              <div class="order-pulse-indicator">
+                <span class="ping-circle"></span>
+                <span class="ping-core"></span>
+              </div>
+              <div class="order-header-info">
+                <span class="order-state-tag" data-i18n="orderEnRoute">الفني في الطريق إليك</span>
+                <strong class="order-serv-name" id="previewOrderName">صيانة التكييف • تفرغ زينة</strong>
+              </div>
+              <button class="track-btn-mini" id="openLiveTrackerBtn">
+                <span data-i18n="trackNow">تتبع مباشر</span> <i class="fa-solid fa-arrow-left flip-ltr"></i>
+              </button>
+            </div>
+            <div class="order-progress-track">
+              <div class="progress-bar-fill" style="width: 65%;"></div>
+            </div>
+            <div class="order-eta-row">
+              <small><i class="fa-regular fa-clock"></i> <span data-i18n="etaText">الوصول المتوقع:</span> <strong>12
+                  دقيقة</strong></small>
+              <small class="tech-name"><i class="fa-solid fa-user-check"></i> المختار ولد أحمد (4.9 ★)</small>
+            </div>
+          </div>
+
+          <!-- Services Grid Header -->
+          <div class="section-title-row">
+            <div>
+              <h3 class="section-heading" data-i18n="servicesHeading">خدماتنا الرئيسية</h3>
+              <p class="section-subheading" data-i18n="servicesSub">اختر الخدمة المطلوبة لحجز مزود مؤهل فوري</p>
+            </div>
+            <span class="badge-count" data-i18n="servicesCount">6 خدمات</span>
+          </div>
+
+          <!-- The 6 Core 3D Service Cards -->
+          <div class="services-grid-3d" id="servicesGrid">
+
+            <!-- 1. Cleaning (التنظيف) -->
+            <article class="service-card-3d tilt-card" data-service="cleaning" tabindex="0">
+              <div class="card-glow-edge"></div>
+              <div class="card-top-icon clean-gradient">
+                <i class="fa-solid fa-broom"></i>
+              </div>
+              <div class="card-body">
+                <span class="card-category" data-i18n="catCleaning">نظافة منزلية</span>
+                <h4 class="card-title" data-i18n="servCleaning">التنظيف (Nettoyage)</h4>
+                <p class="card-desc" data-i18n="descCleaning">تنظيف المنازل، الشقق، المكاتب، التعقيم، وغسيل المفروشات
+                  والسجاد بأحدث الأجهزة.</p>
+                <div class="card-meta">
+                  <span class="price-estimate"><i class="fa-solid fa-coins"></i> <span data-i18n="from">ابتداءً
+                      من</span> <strong>400 MRU</strong></span>
+                  <span class="rating-mini"><i class="fa-solid fa-star"></i> 4.9 (142)</span>
+                </div>
+              </div>
+              <button class="btn-card-action" data-service="cleaning">
+                <span data-i18n="bookService">احجز الآن</span> <i class="fa-solid fa-chevron-left flip-ltr"></i>
+              </button>
+            </article>
+
+            <!-- 2. Plumbing (السباكة) -->
+            <article class="service-card-3d tilt-card" data-service="plumbing" tabindex="0">
+              <div class="card-glow-edge"></div>
+              <div class="card-top-icon plumb-gradient">
+                <i class="fa-solid fa-faucet-drip"></i>
+              </div>
+              <div class="card-body">
+                <span class="card-category" data-i18n="catPlumbing">تمديدات ومياه</span>
+                <h4 class="card-title" data-i18n="servPlumbing">السباكة (Plomberie)</h4>
+                <p class="card-desc" data-i18n="descPlumbing">إصلاح التسريبات، تركيب تمديدات المياه، صيانة الخزانات
+                  وسخانات المياه بدقة عالية.</p>
+                <div class="card-meta">
+                  <span class="price-estimate"><i class="fa-solid fa-coins"></i> <span data-i18n="from">ابتداءً
+                      من</span> <strong>350 MRU</strong></span>
+                  <span class="rating-mini"><i class="fa-solid fa-star"></i> 4.8 (210)</span>
+                </div>
+              </div>
+              <button class="btn-card-action" data-service="plumbing">
+                <span data-i18n="bookService">احجز الآن</span> <i class="fa-solid fa-chevron-left flip-ltr"></i>
+              </button>
+            </article>
+
+            <!-- 3. Electricity (الكهرباء) -->
+            <article class="service-card-3d tilt-card" data-service="electricity" tabindex="0">
+              <div class="card-glow-edge"></div>
+              <div class="card-top-icon electric-gradient">
+                <i class="fa-solid fa-bolt-lightning"></i>
+              </div>
+              <div class="card-body">
+                <span class="card-category" data-i18n="catElectric">أعطال وتمديدات</span>
+                <h4 class="card-title" data-i18n="servElectric">الكهرباء (Électricité)</h4>
+                <p class="card-desc" data-i18n="descElectric">فحص الأعطال الكهربائية، تركيب لوحات التحكم، الإضاءة
+                  الحديثة، والأنظمة الشمسية والمولدات.</p>
+                <div class="card-meta">
+                  <span class="price-estimate"><i class="fa-solid fa-coins"></i> <span data-i18n="from">ابتداءً
+                      من</span> <strong>500 MRU</strong></span>
+                  <span class="rating-mini"><i class="fa-solid fa-star"></i> 4.9 (185)</span>
+                </div>
+              </div>
+              <button class="btn-card-action" data-service="electricity">
+                <span data-i18n="bookService">احجز الآن</span> <i class="fa-solid fa-chevron-left flip-ltr"></i>
+              </button>
+            </article>
+
+            <!-- 4. Maintenance (الصيانة العامة) -->
+            <article class="service-card-3d tilt-card" data-service="maintenance" tabindex="0">
+              <div class="card-glow-edge"></div>
+              <div class="card-top-icon maint-gradient">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+              </div>
+              <div class="card-body">
+                <span class="card-category" data-i18n="catMaint">إصلاحات عامة</span>
+                <h4 class="card-title" data-i18n="servMaint">الصيانة (Maintenance)</h4>
+                <p class="card-desc" data-i18n="descMaint">صيانة وإصلاح المكيفات، الأجهزة الكهرومنزلية، أعمال النجارة،
+                  والترميمات السريعة.</p>
+                <div class="card-meta">
+                  <span class="price-estimate"><i class="fa-solid fa-coins"></i> <span data-i18n="from">ابتداءً
+                      من</span> <strong>450 MRU</strong></span>
+                  <span class="rating-mini"><i class="fa-solid fa-star"></i> 4.9 (320)</span>
+                </div>
+              </div>
+              <button class="btn-card-action" data-service="maintenance">
+                <span data-i18n="bookService">احجز الآن</span> <i class="fa-solid fa-chevron-left flip-ltr"></i>
+              </button>
+            </article>
+
+            <!-- 5. Transport (النقل والترحيل) -->
+            <article class="service-card-3d tilt-card" data-service="transport" tabindex="0">
+              <div class="card-glow-edge"></div>
+              <div class="card-top-icon trans-gradient">
+                <i class="fa-solid fa-truck-ramp-box"></i>
+              </div>
+              <div class="card-body">
+                <span class="card-category" data-i18n="catTransport">نقل وترحيل</span>
+                <h4 class="card-title" data-i18n="servTransport">النقل (Transport)</h4>
+                <p class="card-desc" data-i18n="descTransport">نقل الأثاث، المعدات الثقيلة، ترحيل المنازل وتوصيل البضائع
+                  بين مقاطعات نواكشوط بأمان.</p>
+                <div class="card-meta">
+                  <span class="price-estimate"><i class="fa-solid fa-coins"></i> <span data-i18n="from">ابتداءً
+                      من</span> <strong>600 MRU</strong></span>
+                  <span class="rating-mini"><i class="fa-solid fa-star"></i> 4.8 (98)</span>
+                </div>
+              </div>
+              <button class="btn-card-action" data-service="transport">
+                <span data-i18n="bookService">احجز الآن</span> <i class="fa-solid fa-chevron-left flip-ltr"></i>
+              </button>
+            </article>
+
+            <!-- 6. Special Feature: طلب ميرة (Courses & Meera Courier) -->
+            <article class="service-card-3d tilt-card special-meera-card" data-service="meera" tabindex="0">
+              <div class="meera-neon-badge">
+                <i class="fa-solid fa-fire"></i> <span data-i18n="meeraBadge">خدمة حصرية</span>
+              </div>
+              <div class="card-glow-edge meera-glow"></div>
+
+              <div class="meera-card-banner">
+                <img src="assets/meera.jpg" alt="طلب ميرة بيتي" class="meera-banner-img">
+                <div class="meera-floating-icon">
+                  <i class="fa-solid fa-basket-shopping"></i>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <span class="card-category meera-accent" data-i18n="catMeera">توصيل البقالة والمؤونة</span>
+                <h4 class="card-title meera-title" data-i18n="servMeera">طلب ميرة (Courses & Provisions)</h4>
+                <p class="card-desc" data-i18n="descMeera">اطلب عامل توصيل متخصص يشتري لك كافة حاجيات البقالة، الخضار،
+                  اللحوم والمؤونة ويسلمها حتى باب بيتك.</p>
+
+                <div class="meera-price-notice">
+                  <i class="fa-solid fa-circle-info"></i>
+                  <span data-i18n="meeraPriceRule">السعر يحدد بعد تمام المهمة مع فاتورة الشراء الموثقة</span>
+                </div>
+              </div>
+
+              <button class="btn-card-action btn-meera-action" data-service="meera">
+                <span data-i18n="orderMeeraBtn">اطلب ميرة الآن</span> <i class="fa-solid fa-arrow-left flip-ltr"></i>
+              </button>
+            </article>
+
+          </div>
+
+          <!-- Top Verified Service Providers in Current District -->
+          <div class="section-title-row providers-section-head">
+            <div>
+              <h3 class="section-heading" data-i18n="topProvidersHeading">أفضل مزودي الخدمة المتاحين الآن</h3>
+              <p class="section-subheading" data-i18n="topProvidersSub">حرفيون موثوقون، مؤهلون ومقيمون من قبل العملاء
+              </p>
+            </div>
+            <button class="link-btn" id="seeAllProvidersBtn" data-i18n="viewAll">عرض الكل <i
+                class="fa-solid fa-arrow-left flip-ltr"></i></button>
+          </div>
+
+          <!-- Featured Providers Carousel/Grid -->
+          <div class="providers-preview-list" id="featuredProvidersList">
+            <!-- Populated via JS dynamically -->
+          </div>
+
+          <!-- Emergency Banner -->
+          <div class="emergency-box-3d">
+            <div class="emergency-icon-wrap">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <div class="emergency-text">
+              <h4 data-i18n="emergencyTitle">طوارئ منزلية عاجلة؟</h4>
+              <p data-i18n="emergencyDesc">تسرب مياه حاد، التماس كهربائي أو قفل معطل؟ إرسال فني طوارئ خلال 15 دقيقة.</p>
+            </div>
+            <button class="btn-emergency-call" id="emergencyCallBtn">
+              <i class="fa-solid fa-phone"></i> <span data-i18n="callEmergency">اتصال فوري</span>
+            </button>
+          </div>
+
+        </section>
+
+
+        <!-- ================= TAB 2: PROVIDERS & OFFERS (مزودو الخدمة والمقارنة) ================= -->
+        <section class="tab-page" id="tabProviders">
+          <div class="page-header-box">
+            <h2 class="page-title" data-i18n="providersPageTitle">مزودو الخدمات المعتمدون</h2>
+            <p class="page-subtitle" data-i18n="providersPageSub">قارن عروض الأسعار، التقييمات، وسرعة الاستجابة في
+              مقاطعتك</p>
+          </div>
+
+          <!-- Service Category Filter Pills -->
+          <div class="filter-pills-scroll" id="categoryFilterPills">
+            <button class="pill-btn active" data-filter="all"><span data-i18n="filterAll">الكل</span></button>
+            <button class="pill-btn" data-filter="cleaning"><i class="fa-solid fa-broom"></i> <span
+                data-i18n="servCleaningShort">تنظيف</span></button>
+            <button class="pill-btn" data-filter="plumbing"><i class="fa-solid fa-faucet-drip"></i> <span
+                data-i18n="servPlumbingShort">سباكة</span></button>
+            <button class="pill-btn" data-filter="electricity"><i class="fa-solid fa-bolt"></i> <span
+                data-i18n="servElectricShort">كهرباء</span></button>
+            <button class="pill-btn" data-filter="maintenance"><i class="fa-solid fa-wrench"></i> <span
+                data-i18n="servMaintShort">صيانة</span></button>
+            <button class="pill-btn" data-filter="transport"><i class="fa-solid fa-truck"></i> <span
+                data-i18n="servTransportShort">نقل</span></button>
+            <button class="pill-btn" data-filter="meera"><i class="fa-solid fa-basket-shopping"></i> <span
+                data-i18n="servMeeraShort">طلب ميرة</span></button>
+          </div>
+
+          <!-- Sort Bar -->
+          <div class="sort-bar-row">
+            <span class="results-count" id="providerCountLabel">12 مزود متاح</span>
+            <div class="sort-dropdown-wrap">
+              <label for="sortProvidersSelect" data-i18n="sortBy">ترتيب حسب:</label>
+              <select id="sortProvidersSelect">
+                <option value="rating" data-i18n="sortRating">الأعلى تقييماً</option>
+                <option value="price-asc" data-i18n="sortPriceAsc">الأقل سعراً</option>
+                <option value="speed" data-i18n="sortSpeed">الأسرع وصولاً</option>
+                <option value="jobs" data-i18n="sortJobs">الأكثر إنجازاً</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Providers Cards List Container -->
+          <div class="providers-full-list" id="providersFullList">
+            <!-- Injected via JavaScript -->
+          </div>
+        </section>
+
+
+        <!-- ================= TAB 3: LIVE TRACKER (التتبع الفوري لحظة بلحظة) ================= -->
+        <section class="tab-page" id="tabTracking">
+          <div class="page-header-box">
+            <div class="live-status-chip">
+              <span class="pulse-beacon"></span>
+              <span data-i18n="liveTrackingTag">تتبع مباشر لحظة بلحظة (GPS)</span>
+            </div>
+            <h2 class="page-title" data-i18n="trackingTitle">حالة طلبك الحالي</h2>
+            <p class="page-subtitle" data-i18n="trackingSub">متابعة تحركات الفني والوقت المتبقي حتى الوصول</p>
+          </div>
+
+          <!-- Futuristic 3D Radar Map Simulation -->
+          <div class="radar-map-card tilt-card" id="radarMapCard">
+            <div class="radar-grid-layer"></div>
+            <div class="map-street-layer"></div>
+
+            <!-- Pulse Waves -->
+            <div class="radar-sweep"></div>
+
+            <!-- User Home Marker -->
+            <div class="map-marker home-marker" style="top: 68%; left: 35%;">
+              <div class="marker-pulse-ring"></div>
+              <div class="marker-icon"><i class="fa-solid fa-house"></i></div>
+              <span class="marker-tooltip" data-i18n="myHome">منزلي (تفرغ زينة)</span>
+            </div>
+
+            <!-- Provider Live Moving Marker -->
+            <div class="map-marker provider-marker" id="providerGpsPin" style="top: 32%; left: 62%;">
+              <div class="marker-pulse-ring tech-ring"></div>
+              <div class="marker-icon tech-icon"><i class="fa-solid fa-motorcycle"></i></div>
+              <span class="marker-tooltip tech-tooltip" id="gpsPinName">الفني: سيدي محمد</span>
+            </div>
+
+            <!-- Holographic Vector Route Line -->
+            <svg class="hologram-route-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <path d="M 62 32 Q 50 45 35 68" class="route-line-glow" />
+              <path d="M 62 32 Q 50 45 35 68" class="route-line-dash" />
+            </svg>
+
+            <!-- Map Floating Controls -->
+            <div class="map-overlay-badges">
+              <div class="map-stat-badge">
+                <i class="fa-solid fa-gauge-high"></i>
+                <span><strong id="etaMinutes">11</strong> <small data-i18n="minutesUnit">دقيقة</small></span>
+              </div>
+              <div class="map-stat-badge">
+                <i class="fa-solid fa-route"></i>
+                <span><strong id="distKm">2.4</strong> <small data-i18n="kmUnit">كم</small></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Real-Time 5-Step Order Progress Tracker -->
+          <div class="tracker-stepper-card-3d">
+            <div class="stepper-header">
+              <span class="order-id-code">#BYT-8842-NKTT</span>
+              <span class="order-cat-pill" id="trackOrderTypeBadge">سباكة وإصلاح تسريب</span>
+            </div>
+
+            <div class="stepper-track-3d" id="trackingStepper">
+
+              <!-- Step 1: Confirmed -->
+              <div class="step-item step-completed">
+                <div class="step-node"><i class="fa-solid fa-check"></i></div>
+                <div class="step-info">
+                  <strong data-i18n="step1Title">تم استلام وتأكيد الطلب</strong>
+                  <small>12:20 - تم العثور على مزود مؤهل</small>
+                </div>
+              </div>
+
+              <!-- Step 2: Assigned -->
+              <div class="step-item step-completed">
+                <div class="step-node"><i class="fa-solid fa-user-gear"></i></div>
+                <div class="step-info">
+                  <strong data-i18n="step2Title">تم تكليف الفني وقبول المهمة</strong>
+                  <small>12:22 - سيدي محمد البشير</small>
+                </div>
+              </div>
+
+              <!-- Step 3: En Route (Active) -->
+              <div class="step-item step-current">
+                <div class="step-node pulse-node"><i class="fa-solid fa-truck-fast"></i></div>
+                <div class="step-info">
+                  <strong class="highlight-step" data-i18n="step3Title">الفني في الطريق إلى موقعك</strong>
+                  <small class="highlight-sub">شارع المختار ولد داداه - متوقع خلال 11 دقيقة</small>
+                </div>
+              </div>
+
+              <!-- Step 4: In Progress -->
+              <div class="step-item step-upcoming">
+                <div class="step-node"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                <div class="step-info">
+                  <strong data-i18n="step4Title">بدء تنفيذ العمل والمعاينة</strong>
+                  <small data-i18n="stepWait">في انتظار الوصول</small>
+                </div>
+              </div>
+
+              <!-- Step 5: Completed & Rated -->
+              <div class="step-item step-upcoming">
+                <div class="step-node"><i class="fa-solid fa-star"></i></div>
+                <div class="step-info">
+                  <strong data-i18n="step5Title">اكتمال الخدمة واعتماد الفاتورة</strong>
+                  <small data-i18n="stepReviewWait">التقييم وضمان الجودة</small>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Technician Contact Box -->
+            <div class="provider-contact-card">
+              <div class="tech-avatar-wrap">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"
+                  alt="سيدي محمد" class="tech-photo">
+                <span class="verified-tick"><i class="fa-solid fa-check"></i></span>
+              </div>
+              <div class="tech-details">
+                <div class="tech-name-row">
+                  <h4>سيدي محمد البشير</h4>
+                  <span class="rating-badge"><i class="fa-solid fa-star"></i> 4.95</span>
+                </div>
+                <p class="tech-specialty"><i class="fa-solid fa-faucet-drip"></i> خبير سباكة معتمد • 650+ مهمة ناجحة</p>
+              </div>
+              <div class="contact-btns-group">
+                <a href="tel:+22245000000" class="btn-contact call-btn" title="اتصال هاتفي">
+                  <i class="fa-solid fa-phone"></i>
+                </a>
+                <a href="https://wa.me/22200000000" target="_blank" class="btn-contact wa-btn" title="محادثة واتساب">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Quick Action to Simulate Steps or Complete for Demo -->
+            <div class="demo-controls-bar">
+              <button class="btn-demo-step" id="btnNextStepSim">
+                <i class="fa-solid fa-forward-step"></i> <span data-i18n="simulateStep">محاكاة تقدم الحالة (عرض
+                  حي)</span>
+              </button>
+              <button class="btn-review-trigger" id="btnOpenRatingModal">
+                <i class="fa-solid fa-star-half-stroke"></i> <span data-i18n="rateProviderBtn">تقييم الخدمة</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ================= TAB 4: MY ORDERS & ACTIVITY (طلباتي) ================= -->
+        <section class="tab-page" id="tabOrders">
+          <div class="page-header-box">
+            <h2 class="page-title" data-i18n="myOrdersTitle">طلباتي والعمليات السابقة</h2>
+            <p class="page-subtitle" data-i18n="myOrdersSub">سجل كافة الخدمات ومشتريات طلب ميرة المكتملة</p>
+          </div>
+
+          <div class="orders-filter-tabs">
+            <button class="subtab-btn active" data-tab-state="all" data-i18n="allOrders">الكل (4)</button>
+            <button class="subtab-btn" data-tab-state="active" data-i18n="activeOrdersTab">النشطة (1)</button>
+            <button class="subtab-btn" data-tab-state="done" data-i18n="doneOrdersTab">المكتملة (3)</button>
+          </div>
+
+          <div class="orders-history-list" id="ordersHistoryList">
+            <!-- Sample Completed Order 1: Meera -->
+            <div class="order-history-card-3d">
+              <div class="history-top-row">
+                <div class="hist-icon meera-icon"><i class="fa-solid fa-basket-shopping"></i></div>
+                <div class="hist-meta">
+                  <span class="hist-type" data-i18n="servMeera">طلب ميرة (مؤونة وتموين)</span>
+                  <span class="hist-date">أمس 18:30 • سوق العاصمة الكبير</span>
+                </div>
+                <span class="order-status-badge completed" data-i18n="statusCompleted">مكتملة ومسلمة</span>
+              </div>
+              <p class="hist-items-summary">شراء: كيس أرز بسمتي 25كغ + كرتون حليب كانديا + زيت الطبخ 5 لتر + خضروات
+                مشكلة.</p>
+              <div class="history-bottom-row">
+                <div class="hist-price">
+                  <small data-i18n="totalCost">إجمالي الفاتورة:</small>
+                  <strong>1,850 MRU</strong>
+                </div>
+                <div class="hist-actions">
+                  <button class="btn-invoice-view" title="عرض الفاتورة"><i class="fa-solid fa-receipt"></i> <span
+                      data-i18n="invoice">الفاتورة</span></button>
+                  <button class="btn-reorder" title="إعادة الطلب"><i class="fa-solid fa-rotate-right"></i> <span
+                      data-i18n="reorder">تكرار</span></button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sample Completed Order 2: Cleaning -->
+            <div class="order-history-card-3d">
+              <div class="history-top-row">
+                <div class="hist-icon clean-icon"><i class="fa-solid fa-broom"></i></div>
+                <div class="hist-meta">
+                  <span class="hist-type" data-i18n="servCleaning">تنظيف المنازل العميق</span>
+                  <span class="hist-date">21 سبتمبر 2026 • تفرغ زينة</span>
+                </div>
+                <span class="order-status-badge completed" data-i18n="statusCompleted">مكتملة ومقيمة</span>
+              </div>
+              <p class="hist-items-summary">تنظيف شامل لشقة 4 غرف مع تعقيم الأرضيات وغسيل الصالون.</p>
+              <div class="history-bottom-row">
+                <div class="hist-price">
+                  <small data-i18n="totalCost">السعر المتفق عليه:</small>
+                  <strong>1,200 MRU</strong>
+                </div>
+                <div class="hist-actions">
+                  <span class="rated-stars-display"><i class="fa-solid fa-star"></i> 5.0 (ممتاز)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sample Completed Order 3: Electricity -->
+            <div class="order-history-card-3d">
+              <div class="history-top-row">
+                <div class="hist-icon electric-icon"><i class="fa-solid fa-bolt"></i></div>
+                <div class="hist-meta">
+                  <span class="hist-type" data-i18n="servElectric">إصلاح عطل كهربائي</span>
+                  <span class="hist-date">15 سبتمبر 2026 • لكصر</span>
+                </div>
+                <span class="order-status-badge completed" data-i18n="statusCompleted">مكتملة ومقيمة</span>
+              </div>
+              <p class="hist-items-summary">استبدال قاطع دارة رئيسي وتمديد خط حماية لمكيف الصالة.</p>
+              <div class="history-bottom-row">
+                <div class="hist-price">
+                  <small data-i18n="totalCost">السعر:</small>
+                  <strong>650 MRU</strong>
+                </div>
+                <div class="hist-actions">
+                  <span class="rated-stars-display"><i class="fa-solid fa-star"></i> 4.8</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ================= TAB 5: PROFILE & WALLET (حسابي ومحفظتي) ================= -->
+        <section class="tab-page" id="tabProfile">
+          <!-- Profile 3D Card -->
+          <div class="profile-card-3d tilt-card">
+            <div class="profile-header">
+              <div class="profile-avatar-box">
+                <img src="assets/logo.jpg" alt="المستخدم" class="user-avatar">
+                <span class="user-status-dot"></span>
+              </div>
+              <div class="profile-user-info">
+                <h3 class="user-fullname">محمد ولد المختار</h3>
+                <p class="user-phone">+222 46 88 99 00</p>
+                <span class="user-tier-badge"><i class="fa-solid fa-crown"></i> <span data-i18n="tierVip">عميل بيتي
+                    الذهبي (VIP)</span></span>
+              </div>
+            </div>
+
+            <!-- 3D Wallet & Points Strip -->
+            <div class="profile-stats-strip">
+              <div class="stat-box">
+                <small data-i18n="walletBalance">رصيد المحفظة</small>
+                <strong>4,500 <span class="currency">MRU</span></strong>
+              </div>
+              <div class="stat-box">
+                <small data-i18n="points">نقاط بيتي</small>
+                <strong>380 <span class="pts-tag"><i class="fa-solid fa-gem"></i></span></strong>
+              </div>
+              <div class="stat-box">
+                <small data-i18n="completedServices">الخدمات المنجزة</small>
+                <strong>14 <span class="currency" data-i18n="serviceCount">خدمة</span></strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Profile Options List -->
+          <div class="settings-group-card-3d">
+            <h4 class="group-title" data-i18n="accountSettings">إعدادات الحساب والمقاطعة</h4>
+
+            <a href="#" class="settings-row" id="editAddressesBtn">
+              <div class="row-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+              <div class="row-text">
+                <span data-i18n="savedAddresses">عناويني المحفوظة</span>
+                <small>تفرغ زينة (المنزل)، لكصر (المكتب)</small>
+              </div>
+              <i class="fa-solid fa-chevron-left arrow flip-ltr"></i>
+            </a>
+
+            <div class="settings-row lang-row">
+              <div class="row-icon"><i class="fa-solid fa-language"></i></div>
+              <div class="row-text">
+                <span data-i18n="appLanguage">لغة التطبيق (Langue)</span>
+                <small id="profileLangLabel">العربية (Mauritanie)</small>
+              </div>
+              <button class="btn-switch-lang-mini" id="profileLangToggle">Changer en Français</button>
+            </div>
+
+            <a href="#" class="settings-row">
+              <div class="row-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <div class="row-text">
+                <span data-i18n="guaranteePolicy">ضمان بيتي وسياسة الجودة</span>
+                <small data-i18n="guaranteeSub">حماية العميل وضمان العمل 30 يوماً</small>
+              </div>
+              <i class="fa-solid fa-chevron-left arrow flip-ltr"></i>
+            </a>
+
+            <a href="#" class="settings-row">
+              <div class="row-icon"><i class="fa-solid fa-headset"></i></div>
+              <div class="row-text">
+                <span data-i18n="supportCenter">مركز مساعدة بيتي (الدعم الفوري)</span>
+                <small data-i18n="supportSub">متاح 24/7 عبر الهاتف والواتساب</small>
+              </div>
+              <i class="fa-solid fa-chevron-left arrow flip-ltr"></i>
+            </a>
+          </div>
+
+          <!-- Join as Service Provider Banner -->
+          <div class="become-provider-banner tilt-card">
+            <div class="banner-icon-side">
+              <i class="fa-solid fa-id-card-clip"></i>
+            </div>
+            <div class="banner-text-side">
+              <h4 data-i18n="joinProviderTitle">هل أنت حرفي أو فني محترف في نواكشوط؟</h4>
+              <p data-i18n="joinProviderDesc">انضم لشبكة بيتي المعتمدة وضاعف دخلك الشهري واستقبل الطلبات يومياً.</p>
+              <button class="btn-join-provider" id="joinProviderBtn" data-i18n="registerAsProvider">سجل الآن كمزود
+                خدمة</button>
+            </div>
+          </div>
+        </section>
+
+      </div> <!-- /app-scroll-body -->
+
+
+      <!-- ================= 3D BOTTOM DOCK NAVIGATION BAR ================= -->
+      <nav class="bottom-dock-nav" aria-label="Bottom Navigation">
+        <button class="nav-tab-btn active" data-tab="tabHome">
+          <div class="tab-icon-wrap">
+            <i class="fa-solid fa-house"></i>
+          </div>
+          <span class="tab-label" data-i18n="navHome">الرئيسية</span>
+        </button>
+
+        <button class="nav-tab-btn" data-tab="tabProviders">
+          <div class="tab-icon-wrap">
+            <i class="fa-solid fa-users-gear"></i>
+          </div>
+          <span class="tab-label" data-i18n="navProviders">المزودون</span>
+        </button>
+
+        <!-- Center Floating 3D Action Button (طلب خدمة / طلب ميرة) -->
+        <button class="nav-tab-center-btn" id="centerActionBtn" aria-label="طلب خدمة جديدة">
+          <div class="center-btn-orb">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+          <span class="center-btn-label" data-i18n="navRequest">طلب فوري</span>
+        </button>
+
+        <button class="nav-tab-btn" data-tab="tabTracking">
+          <div class="tab-icon-wrap with-ping">
+            <i class="fa-solid fa-location-crosshairs"></i>
+            <span class="nav-ping-dot"></span>
+          </div>
+          <span class="tab-label" data-i18n="navTracking">التتبع</span>
+        </button>
+
+        <button class="nav-tab-btn" data-tab="tabOrders">
+          <div class="tab-icon-wrap">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+          </div>
+          <span class="tab-label" data-i18n="navOrders">طلباتي</span>
+        </button>
+      </nav>
+
+      <!-- Bottom Home Indicator Bar (iOS style) -->
+      <div class="phone-home-indicator"></div>
+
+    </main> <!-- /mobile-phone-frame -->
+  </div> <!-- /app-viewport-wrapper -->
+
+
+  <!-- ================= MODAL 1: BOOKING & INSTANT QUOTE MODAL ================= -->
+  <div class="modal-backdrop" id="bookingModal" aria-hidden="true">
+    <div class="modal-dialog-3d">
+      <div class="modal-header-3d">
+        <div class="modal-title-wrap">
+          <div class="modal-icon-badge" id="bookingModalIcon"><i class="fa-solid fa-wrench"></i></div>
+          <div>
+            <h3 class="modal-title" id="bookingModalTitle">حجز خدمة</h3>
+            <span class="modal-sub" id="bookingModalSub">تحديد التفاصيل ومزود الخدمة</span>
+          </div>
+        </div>
+        <button class="btn-close-modal" id="closeBookingModal" aria-label="إغلاق"><i
+            class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="modal-body-scroll">
+        <form id="bookingForm" onsubmit="return false;">
+          <!-- Service Category Selector -->
+          <div class="form-group-3d">
+            <label class="form-label" data-i18n="chooseServiceType">نوع الخدمة المطلوبة:</label>
+            <div class="service-select-chips" id="bookingServiceChips">
+              <button type="button" class="serv-chip active" data-serv="cleaning"><i class="fa-solid fa-broom"></i>
+                <span data-i18n="servCleaningShort">تنظيف</span></button>
+              <button type="button" class="serv-chip" data-serv="plumbing"><i class="fa-solid fa-faucet-drip"></i> <span
+                  data-i18n="servPlumbingShort">سباكة</span></button>
+              <button type="button" class="serv-chip" data-serv="electricity"><i class="fa-solid fa-bolt"></i> <span
+                  data-i18n="servElectricShort">كهرباء</span></button>
+              <button type="button" class="serv-chip" data-serv="maintenance"><i
+                  class="fa-solid fa-screwdriver-wrench"></i> <span data-i18n="servMaintShort">صيانة</span></button>
+              <button type="button" class="serv-chip" data-serv="transport"><i class="fa-solid fa-truck-ramp-box"></i>
+                <span data-i18n="servTransportShort">نقل</span></button>
+              <button type="button" class="serv-chip meera-chip" data-serv="meera"><i
+                  class="fa-solid fa-basket-shopping"></i> <span data-i18n="servMeeraShort">طلب ميرة</span></button>
+            </div>
+          </div>
+
+          <!-- Moughataa & Neighborhood -->
+          <div class="form-grid-2">
+            <div class="form-group-3d">
+              <label class="form-label" data-i18n="modalMoughataa">المقاطعة في نواكشوط:</label>
+              <select id="modalDistrictSelect" class="form-input-3d">
+                <option value="tevragh-zeina" data-i18n="tevragh">تفرغ زينة</option>
+                <option value="ksar" data-i18n="ksar">لكصر</option>
+                <option value="arafat" data-i18n="arafat">عرفات</option>
+                <option value="teyarett" data-i18n="teyarett">تيارت</option>
+                <option value="dar-naim" data-i18n="darNaim">دار النعيم</option>
+                <option value="toujounine" data-i18n="toujounine">توجنين</option>
+                <option value="riad" data-i18n="riad">الرياض</option>
+                <option value="sebkha" data-i18n="sebkha">السبخة</option>
+                <option value="el-mina" data-i18n="elMina">الميناء</option>
+              </select>
+            </div>
+            <div class="form-group-3d">
+              <label class="form-label" data-i18n="modalNeighborhood">الحي أو المعلم القريب:</label>
+              <input type="text" class="form-input-3d" id="modalNeighborhood"
+                placeholder="مثال: قرب كرفور براد، ملتقى صباح..." data-i18n-ph="landmarkPlaceholder" required>
+            </div>
+          </div>
+
+          <!-- Urgency & Time Preference -->
+          <div class="form-group-3d">
+            <label class="form-label" data-i18n="timingPref">موعد الزيارة المفضل:</label>
+            <div class="urgency-selector">
+              <label class="radio-card">
+                <input type="radio" name="orderUrgency" value="now" checked>
+                <div class="radio-card-content">
+                  <i class="fa-solid fa-bolt"></i>
+                  <div>
+                    <strong data-i18n="urgentNow">فوري (خلال 30 دقيقة)</strong>
+                    <small data-i18n="urgentSub">للطوارئ والأعطال السريعة</small>
+                  </div>
+                </div>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="orderUrgency" value="scheduled">
+                <div class="radio-card-content">
+                  <i class="fa-regular fa-calendar-check"></i>
+                  <div>
+                    <strong data-i18n="scheduleDate">موعد محدد لاحقاً</strong>
+                    <small data-i18n="scheduleSub">اليوم أو خلال الأيام القادمة</small>
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Description and details -->
+          <div class="form-group-3d">
+            <label class="form-label" data-i18n="jobDetails">تفاصيل المشكلة أو طلبك:</label>
+            <textarea class="form-textarea-3d" id="modalJobDescription" rows="3"
+              placeholder="اشرح لنا بدقة ما تحتاجه لتوجيه الفني المناسب بالأدوات الملائمة..."
+              data-i18n-ph="jobDescPlaceholder"></textarea>
+          </div>
+
+          <!-- Preliminary Quote Preview -->
+          <div class="price-quote-preview-box">
+            <div class="quote-row">
+              <span data-i18n="baseEstimate">التقدير التقريبي للأجرة:</span>
+              <strong id="modalQuoteAmount">400 MRU</strong>
+            </div>
+            <div class="quote-note">
+              <i class="fa-solid fa-circle-check"></i>
+              <span data-i18n="quoteGuarantee">السعر النهائي يؤكده الفني بشفافية قبل بدء العمل مع ضمان الجودة</span>
+            </div>
+          </div>
+
+          <div class="modal-actions-row">
+            <button type="button" class="btn-3d btn-glass" id="cancelBookingBtn" data-i18n="cancel">إلغاء</button>
+            <button type="button" class="btn-3d btn-glow-primary" id="confirmBookingBtn">
+              <i class="fa-solid fa-check"></i> <span data-i18n="confirmAndDispatch">تأكيد وحجز الفني الآن</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================= MODAL 2: SPECIAL "طلب ميرة" SMART ORDER BUILDER ================= -->
+  <div class="modal-backdrop" id="meeraModal" aria-hidden="true">
+    <div class="modal-dialog-3d meera-modal-dialog">
+      <div class="modal-header-3d meera-theme-head">
+        <div class="modal-title-wrap">
+          <div class="modal-icon-badge meera-badge-head"><i class="fa-solid fa-basket-shopping"></i></div>
+          <div>
+            <h3 class="modal-title" data-i18n="meeraModalTitle">طلب ميرة (المؤونة والبقالة)</h3>
+            <span class="modal-sub" data-i18n="meeraModalSub">مندوب توصيل خاص يتسوق لك ويسلمها حتى باب بيتك</span>
+          </div>
+        </div>
+        <button class="btn-close-modal" id="closeMeeraModal" aria-label="إغلاق"><i
+            class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="modal-body-scroll">
+        <!-- Banner explanation -->
+        <div class="meera-intro-banner">
+          <img src="assets/meera.jpg" alt="سلة المؤونة" class="intro-meera-thumb">
+          <div class="intro-meera-text">
+            <h4 data-i18n="meeraHowTitle">كيف تعمل خدمة طلب ميرة؟</h4>
+            <p data-i18n="meeraHowDesc">اكتب قائمة الحاجيات المطلوبة أو سجلها صوتياً. ينطلق المندوب لأفضل المتاجر لشراء
+              المواد بجودة عالية، ويسلمها مع الفاتورة الأصلية. <br><strong>السعر يحدد بعد تمام المهمة بحسب فاتورة الشراء
+                + رسوم التوصيل الرمزية.</strong></p>
+          </div>
+        </div>
+
+        <!-- Store / Market Selection -->
+        <div class="form-group-3d">
+          <label class="form-label" data-i18n="storePreference">المتجر أو السوق المفضل:</label>
+          <div class="store-quick-pills">
+            <button type="button" class="store-pill active" data-store="any"><i class="fa-solid fa-store"></i> <span
+                data-i18n="storeAny">أقرب بقالة وسوبرماركت</span></button>
+            <button type="button" class="store-pill" data-store="marche-capitale"><i
+                class="fa-solid fa-building-columns"></i> <span data-i18n="storeCapitale">سوق العاصمة
+                الكبير</span></button>
+            <button type="button" class="store-pill" data-store="carrefour"><i class="fa-solid fa-cart-shopping"></i>
+              <span data-i18n="storeCarrefour">مجمع كارفور / البقالات الكبرى</span></button>
+            <button type="button" class="store-pill" data-store="butcher"><i class="fa-solid fa-drumstick-bite"></i>
+              <span data-i18n="storeMeat">مجزرة لحوم طازجة وخضار</span></button>
+          </div>
+        </div>
+
+        <!-- Interactive Grocery Items Checklist Builder -->
+        <div class="form-group-3d">
+          <label class="form-label" data-i18n="meeraItemsList">قائمة المشتريات والمؤونة:</label>
+
+          <div class="meera-add-input-bar">
+            <input type="text" id="meeraItemInput" placeholder="أضف مادة (مثال: كيس أرز 25كغ، زيت، سكر، حليب، خضار...)"
+              data-i18n-ph="meeraItemPh">
+            <button type="button" id="btnAddMeeraItem" class="btn-add-item"><i class="fa-solid fa-plus"></i> <span
+                data-i18n="addItem">إضافة</span></button>
+          </div>
+
+          <!-- Quick Suggested Essentials Pills -->
+          <div class="essentials-suggestions">
+            <span class="sugg-tag" data-item="كيس أرز موريتاني / بسمتي 25كغ">+ أرز 25كغ</span>
+            <span class="sugg-tag" data-item="زيت طبخ 5 لتر">+ زيت 5 لتر</span>
+            <span class="sugg-tag" data-item="سكر 10 كغ">+ سكر 10 كغ</span>
+            <span class="sugg-tag" data-item="كرتون حليب كانديا">+ حليب</span>
+            <span class="sugg-tag" data-item="طماطم وبصل وبطاطس">+ خضار مشكلة</span>
+            <span class="sugg-tag" data-item="شاي أخضر ونعناع">+ شاي ونعناع</span>
+          </div>
+
+          <!-- Dynamic Items List -->
+          <ul class="meera-items-checklist" id="meeraItemsChecklist">
+            <!-- Default sample items -->
+            <li class="meera-item-row">
+              <span class="item-bullet"><i class="fa-solid fa-check"></i></span>
+              <span class="item-name">كيس أرز بسمتي 25 كغ (جودة ممتازة)</span>
+              <button type="button" class="btn-remove-item"><i class="fa-solid fa-trash-can"></i></button>
+            </li>
+            <li class="meera-item-row">
+              <span class="item-bullet"><i class="fa-solid fa-check"></i></span>
+              <span class="item-name">زيت طبخ 5 لتر + علبة شاي الوزة</span>
+              <button type="button" class="btn-remove-item"><i class="fa-solid fa-trash-can"></i></button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Simulated Voice Note Feature -->
+        <div class="voice-order-simulator">
+          <div class="voice-sim-info">
+            <i class="fa-solid fa-microphone-lines voice-icon"></i>
+            <div>
+              <strong data-i18n="voiceNoteTitle">أو أرسل طلبك بصوتك (تسجيل صوتي)</strong>
+              <small data-i18n="voiceNoteSub">تحدث بسهولة وسيقوم المندوب بتسجيل كل التفاصيل</small>
+            </div>
+          </div>
+          <button type="button" class="btn-record-sim" id="btnRecordSim">
+            <i class="fa-solid fa-microphone"></i> <span id="recordLabel" data-i18n="startRecording">اضغط للتسجيل</span>
+          </button>
+        </div>
+
+        <!-- Destination Address -->
+        <div class="form-grid-2">
+          <div class="form-group-3d">
+            <label class="form-label" data-i18n="deliveryDistrict">مقاطعة التسليم:</label>
+            <select id="meeraDistrictSelect" class="form-input-3d">
+              <option value="tevragh-zeina" data-i18n="tevragh">تفرغ زينة</option>
+              <option value="ksar" data-i18n="ksar">لكصر</option>
+              <option value="arafat" data-i18n="arafat">عرفات</option>
+              <option value="teyarett" data-i18n="teyarett">تيارت</option>
+              <option value="dar-naim" data-i18n="darNaim">دار النعيم</option>
+              <option value="toujounine" data-i18n="toujounine">توجنين</option>
+              <option value="riad" data-i18n="riad">الرياض</option>
+              <option value="sebkha" data-i18n="sebkha">السبخة</option>
+              <option value="el-mina" data-i18n="elMina">الميناء</option>
+            </select>
+          </div>
+          <div class="form-group-3d">
+            <label class="form-label" data-i18n="homeAddressDetail">العنوان ورقم المنزل:</label>
+            <input type="text" class="form-input-3d" id="meeraHomeInput" placeholder="رقم الدار، الشارع أو نقطة دالة..."
+              data-i18n-ph="meeraAddressPh">
+          </div>
+        </div>
+
+        <!-- Pricing Policy Reminder Badge -->
+        <div class="pricing-banner-3d">
+          <i class="fa-solid fa-receipt"></i>
+          <div>
+            <strong data-i18n="meeraPriceRuleTitle">سياسة تسعير طلب ميرة:</strong>
+            <p data-i18n="meeraPriceRuleDesc">يسدد العميل قيمة المشتريات الفعلية بحسب فاتورة الدكان الرسمية بالإضافة
+              لرسوم خدمة التوصيل (تتراوح بين 150 - 250 MRU فقط حسب المسافة).</p>
+          </div>
+        </div>
+
+        <div class="modal-actions-row">
+          <button type="button" class="btn-3d btn-glass" id="cancelMeeraBtn" data-i18n="cancel">إلغاء</button>
+          <button type="button" class="btn-3d btn-glow-primary meera-submit-btn" id="confirmMeeraBtn">
+            <i class="fa-solid fa-paper-plane"></i> <span data-i18n="dispatchMeeraRunner">إرسال عامل التوصيل الآن</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================= MODAL 3: PROVIDER RATING & QUALITY ASSURANCE ================= -->
+  <div class="modal-backdrop" id="ratingModal" aria-hidden="true">
+    <div class="modal-dialog-3d">
+      <div class="modal-header-3d">
+        <div class="modal-title-wrap">
+          <div class="modal-icon-badge star-badge-head"><i class="fa-solid fa-star"></i></div>
+          <div>
+            <h3 class="modal-title" data-i18n="ratingModalTitle">تقييم مزود الخدمة</h3>
+            <span class="modal-sub" data-i18n="ratingModalSub">رأيك يضمن جودة الخدمة لجميع سكان نواكشوط</span>
+          </div>
+        </div>
+        <button class="btn-close-modal" id="closeRatingModal" aria-label="إغلاق"><i
+            class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="modal-body-scroll text-center">
+        <!-- Provider summary -->
+        <div class="rate-provider-info">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"
+            alt="سيدي محمد" class="rate-avatar">
+          <h4 class="rate-tech-name">سيدي محمد البشير</h4>
+          <span class="rate-tech-job">سباكة وإصلاح تسريبات المياه</span>
+        </div>
+
+        <!-- Interactive 5-Star 3D Selector -->
+        <div class="stars-interactive-row" id="starRatingGroup">
+          <button type="button" class="star-btn" data-val="1"><i class="fa-solid fa-star"></i></button>
+          <button type="button" class="star-btn" data-val="2"><i class="fa-solid fa-star"></i></button>
+          <button type="button" class="star-btn" data-val="3"><i class="fa-solid fa-star"></i></button>
+          <button type="button" class="star-btn" data-val="4"><i class="fa-solid fa-star"></i></button>
+          <button type="button" class="star-btn active" data-val="5"><i class="fa-solid fa-star"></i></button>
+        </div>
+        <p class="rating-verdict" id="ratingVerdict" data-i18n="verdict5">ممتاز جداً - عمل احترافي ومتقن!</p>
+
+        <!-- Quality Tags Selector -->
+        <div class="quality-tags-group" id="qualityTagsGroup">
+          <button type="button" class="quality-tag active" data-i18n="tagPunctual">دقة في الموعد</button>
+          <button type="button" class="quality-tag active" data-i18n="tagSkill">إتقان واحترافية</button>
+          <button type="button" class="quality-tag active" data-i18n="tagClean">نظافة مكان العمل</button>
+          <button type="button" class="quality-tag" data-i18n="tagFairPrice">سعر مناسب</button>
+          <button type="button" class="quality-tag active" data-i18n="tagPolite">حسن التعامل والأمانة</button>
+        </div>
+
+        <!-- Feedback Note -->
+        <div class="form-group-3d text-start">
+          <label class="form-label" data-i18n="writtenReviewLabel">تعليقك أو ملاحظاتك الإضافية:</label>
+          <textarea class="form-textarea-3d" id="ratingComment" rows="2"
+            placeholder="اكتب كلمة شكر أو ملاحظة لتحسين الخدمة..." data-i18n-ph="reviewPlaceholder"></textarea>
+        </div>
+
+        <!-- Optional Tip Selector -->
+        <div class="tip-selector-group">
+          <span class="tip-label" data-i18n="addTip">إكرامية اختيارية للفني:</span>
+          <div class="tip-chips">
+            <button type="button" class="tip-chip" data-tip="0" data-i18n="noTip">بدون</button>
+            <button type="button" class="tip-chip" data-tip="50">50 MRU</button>
+            <button type="button" class="tip-chip active" data-tip="100">100 MRU</button>
+            <button type="button" class="tip-chip" data-tip="200">200 MRU</button>
+          </div>
+        </div>
+
+        <div class="modal-actions-row">
+          <button type="button" class="btn-3d btn-glass" id="skipRatingBtn" data-i18n="skip">تخطي</button>
+          <button type="button" class="btn-3d btn-glow-primary" id="submitRatingBtn">
+            <i class="fa-solid fa-check"></i> <span data-i18n="submitReviewBtn">إرسال التقييم واعتماده</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Floating Toast Notification System -->
+  <div class="toast-hub" id="toastHub" aria-live="polite"></div>
+
+  <!-- Main JavaScript App Logic -->
+  <script src="app.js"></script>
+</body>
+
+</html>
