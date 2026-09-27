@@ -1,0 +1,293 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ملفي الشخصي وطلباتي | بيتي - نواكشوط</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Desktop Presentation Controls -->
+  <aside class="desktop-dock" id="desktopDock">
+    <div class="dock-brand">
+      <img src="assets/puffy_house.jpg" alt="Beyti Logo" class="dock-logo">
+      <div class="dock-info">
+        <span class="dock-title">بيتي | Beyti Service</span>
+        <span class="dock-tag" data-ar="ملفي الشخصي وطلباتي" data-fr="Mon Profil & Commandes">ملفي الشخصي وطلباتي</span>
+      </div>
+    </div>
+    <div class="dock-actions">
+      <button class="dock-btn active" id="btnPhoneView"><i class="fa-solid fa-mobile-screen"></i> <span>الهاتف</span></button>
+      <button class="dock-btn" id="btnFullView"><i class="fa-solid fa-expand"></i> <span>كامل</span></button>
+      <button class="dock-btn lang-toggle" id="dockLangBtn"><i class="fa-solid fa-globe"></i> <span id="dockLangLabel">Français</span></button>
+    </div>
+  </aside>
+
+  <!-- App Viewport -->
+  <div class="app-viewport-wrapper">
+    <main class="mobile-phone-frame" id="phoneFrame">
+
+      <!-- Dynamic Island -->
+      <div class="phone-notch">
+        <div class="dynamic-island">
+          <span class="island-dot pulse"></span>
+          <span data-ar="مرحباً مريم • عميلة بيتي VIP" data-fr="Bienvenue Mariem • VIP">مرحباً مريم • عميلة بيتي VIP</span>
+        </div>
+      </div>
+
+      <!-- Status Bar -->
+      <header class="app-status-bar">
+        <span class="status-time" id="statusClock">12:45</span>
+        <div class="status-icons">
+          <i class="fa-solid fa-signal"></i>
+          <i class="fa-solid fa-wifi"></i>
+          <i class="fa-solid fa-battery-full"></i>
+        </div>
+      </header>
+
+      <!-- App Header Nav -->
+      <nav class="app-header-nav">
+        <div class="brand-row">
+          <div class="brand-meta">
+            <a href="home.html"><img src="assets/puffy_house.jpg" alt="بيتي" class="app-logo-img"></a>
+            <div class="brand-text">
+              <h1 class="brand-name" data-ar="ملفي وطلباتي" data-fr="Mon Compte">ملفي وطلباتي</h1>
+              <p class="brand-city"><i class="fa-solid fa-shield-halved" style="color: #10b981;"></i> <span data-ar="حساب موثق وآمن" data-fr="Compte Sécurisé">حساب موثق وآمن</span></p>
+            </div>
+          </div>
+          <div class="header-actions">
+            <button class="icon-chip lang-chip" id="langSwitchBtn">
+              <i class="fa-solid fa-language"></i>
+              <span id="currentLangTag">FR</span>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Scroll Body -->
+      <div class="app-scroll-body">
+
+        <!-- 3D Profile Card with Niqabi Woman Avatar -->
+        <section class="profile-card-3d">
+          <div class="profile-header">
+            <div class="profile-avatar-box">
+              <img src="assets/niqabi_avatar.jpg" alt="مريم بنت محمد الأمين" class="user-avatar">
+              <span class="user-status-dot"></span>
+            </div>
+            <div class="profile-user-info">
+              <h3 class="user-fullname" data-ar="مريم بنت محمد الأمين" data-fr="Mariem Mint Mohamed">مريم بنت محمد الأمين</h3>
+              <p class="user-phone">+222 46 88 99 00</p>
+              <span class="user-tier-badge">
+                <i class="fa-solid fa-crown"></i> <span data-ar="عميلة بيتي الماسية (VIP)" data-fr="Membre VIP Baiti">عميلة بيتي الماسية (VIP)</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Family Privacy Preference Notice -->
+          <div style="background: #fdf2f8; border: 1.5px solid #fbcfe8; border-radius: var(--radius-md); padding: 10px 14px; display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <i class="fa-solid fa-shield-heart" style="color: #db2777; font-size: 1.1rem;"></i>
+              <div>
+                <strong style="font-size: 0.78rem; display: block; color: #9d174d;" data-ar="خصوصية العائلات والزيارات" data-fr="Option Respect & Intimité">خصوصية العائلات والزيارات</strong>
+                <small style="font-size: 0.68rem; color: #be185d;" data-ar="تفضيل فرق التنظيف النسائية المعتمدة" data-fr="Équipe féminine prioritaire pour le ménage">تفضيل فرق التنظيف النسائية المعتمدة</small>
+              </div>
+            </div>
+            <span class="micro-badge" style="background: #db2777; color: #fff;" data-ar="مفعلة" data-fr="Actif">مفعلة</span>
+          </div>
+
+          <!-- Wallet, Points, Orders Strip -->
+          <div class="profile-stats-strip">
+            <div class="stat-box">
+              <small data-ar="رصيد المحفظة" data-fr="Portefeuille">رصيد المحفظة</small>
+              <strong>4,500 <span style="font-size: 0.75rem; color: var(--puffy-blue-600);">MRU</span></strong>
+            </div>
+            <div class="stat-box">
+              <small data-ar="نقاط بيتي" data-fr="Points">نقاط بيتي</small>
+              <strong>380 <i class="fa-solid fa-gem" style="color: var(--puffy-accent-gold); font-size: 0.75rem;"></i></strong>
+            </div>
+            <div class="stat-box">
+              <small data-ar="الطلبات المنجزة" data-fr="Services">الطلبات المنجزة</small>
+              <strong>14 <span style="font-size: 0.75rem; color: var(--text-secondary);" data-ar="خدمة" data-fr="services">خدمة</span></strong>
+            </div>
+          </div>
+        </section>
+
+        <!-- Orders History Section -->
+        <section class="puffy-card">
+          <div class="section-title-row" style="margin-bottom: 12px;">
+            <h3 class="section-heading" data-ar="سجل طلباتي الأخيرة" data-fr="Mes Dernières Commandes">سجل طلباتي الأخيرة</h3>
+            <span class="badge-count" data-ar="3 مكتملة" data-fr="3 Réalisées">3 مكتملة</span>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+
+            <!-- Order 1: Meera -->
+            <div style="background: #ffffff; border-radius: var(--radius-md); padding: 12px; border: 1px solid #dbeafe; box-shadow: var(--puffy-card-shadow);">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <div style="width: 32px; height: 32px; border-radius: 50%; background: #fff7ed; color: #ea580c; display: flex; align-items: center; justify-content: center; font-size: 0.9rem;">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                  </div>
+                  <div>
+                    <strong style="font-size: 0.85rem; color: var(--puffy-navy-dark);" data-ar="طلب ميرة (مؤونة سوق العاصمة)" data-fr="Courses & Provisions Meera">طلب ميرة (مؤونة سوق العاصمة)</strong>
+                    <small style="display: block; font-size: 0.68rem; color: var(--text-secondary);">أمس 18:30 • تفرغ زينة</small>
+                  </div>
+                </div>
+                <span class="micro-badge" style="background: #ecfdf5; color: #047857;" data-ar="مكتمل ومسلم" data-fr="Livré">مكتمل ومسلم</span>
+              </div>
+              <p style="font-size: 0.74rem; color: var(--text-secondary); margin-bottom: 8px;">شراء: كيس أرز 25كغ + كرتون حليب كانديا + زيت طهي 5 لتر وخضروات طازجة.</p>
+              <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #f1f5f9; padding-top: 6px;">
+                <span style="font-weight: 800; font-size: 0.85rem; color: var(--puffy-navy-dark);">1,850 MRU</span>
+                <a href="order.html?service=meera" class="btn-3d btn-glass" style="padding: 4px 12px; font-size: 0.72rem;">
+                  <i class="fa-solid fa-rotate-right"></i> <span data-ar="إعادة الطلب" data-fr="Renouveler">إعادة الطلب</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Order 2: Cleaning -->
+            <div style="background: #ffffff; border-radius: var(--radius-md); padding: 12px; border: 1px solid #dbeafe; box-shadow: var(--puffy-card-shadow);">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <div style="width: 32px; height: 32px; border-radius: 50%; background: #eff6ff; color: #2563eb; display: flex; align-items: center; justify-content: center; font-size: 0.9rem;">
+                    <i class="fa-solid fa-broom"></i>
+                  </div>
+                  <div>
+                    <strong style="font-size: 0.85rem; color: var(--puffy-navy-dark);" data-ar="تنظيف شامل للشقة (فريق النقاء)" data-fr="Nettoyage Complet Appartement">تنظيف شامل للشقة (فريق النقاء)</strong>
+                    <small style="display: block; font-size: 0.68rem; color: var(--text-secondary);">21 سبتمبر 2026 • تفرغ زينة</small>
+                  </div>
+                </div>
+                <span class="micro-badge" style="background: #ecfdf5; color: #047857;" data-ar="مكتمل ومقيم" data-fr="Noté 5★">مكتمل ومقيم</span>
+              </div>
+              <p style="font-size: 0.74rem; color: var(--text-secondary); margin-bottom: 8px;">تنظيف عميق، تعقيم الأرضيات، وغسيل السجاد والصالون.</p>
+              <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #f1f5f9; padding-top: 6px;">
+                <span style="font-weight: 800; font-size: 0.85rem; color: var(--puffy-navy-dark);">1,200 MRU</span>
+                <span style="font-size: 0.75rem; color: #f59e0b; font-weight: 700;"><i class="fa-solid fa-star"></i> 5.0 (ممتاز)</span>
+              </div>
+            </div>
+
+            <!-- Order 3: Plumbing -->
+            <div style="background: #ffffff; border-radius: var(--radius-md); padding: 12px; border: 1px solid #dbeafe; box-shadow: var(--puffy-card-shadow);">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <div style="width: 32px; height: 32px; border-radius: 50%; background: #ecfeff; color: #0891b2; display: flex; align-items: center; justify-content: center; font-size: 0.9rem;">
+                    <i class="fa-solid fa-faucet-drip"></i>
+                  </div>
+                  <div>
+                    <strong style="font-size: 0.85rem; color: var(--puffy-navy-dark);" data-ar="صيانة سخان مياه وتغيير محبس" data-fr="Réparation Chauffe-eau">صيانة سخان مياه وتغيير محبس</strong>
+                    <small style="display: block; font-size: 0.68rem; color: var(--text-secondary);">14 سبتمبر 2026 • تفرغ زينة</small>
+                  </div>
+                </div>
+                <span class="micro-badge" style="background: #ecfdf5; color: #047857;" data-ar="مكتمل" data-fr="Terminé">مكتمل</span>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid #f1f5f9; padding-top: 6px;">
+                <span style="font-weight: 800; font-size: 0.85rem; color: var(--puffy-navy-dark);">400 MRU</span>
+                <span style="font-size: 0.75rem; color: #f59e0b; font-weight: 700;"><i class="fa-solid fa-star"></i> 4.9</span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Saved Addresses & Settings -->
+        <section class="settings-group-card-3d">
+          <h4 class="group-title" data-ar="عناويني وإعدادات الحساب" data-fr="Adresses & Préférences">عناويني وإعدادات الحساب</h4>
+
+          <div class="settings-row" onclick="BEYTI_COMMON.showToast('العنوان الحالي: تفرغ زينة (حي النعيم)');">
+            <div class="row-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+            <div class="row-text">
+              <span data-ar="عناويني المحفوظة" data-fr="Mes Adresses">عناويني المحفوظة</span>
+              <small>تفرغ زينة (المنزل الرئيسي) • لكصر (منزل العائلة)</small>
+            </div>
+            <i class="fa-solid fa-chevron-left arrow flip-ltr"></i>
+          </div>
+
+          <div class="settings-row lang-row">
+            <div class="row-icon"><i class="fa-solid fa-language"></i></div>
+            <div class="row-text">
+              <span data-ar="لغة التطبيق (Langue)" data-fr="Langue de l'App">لغة التطبيق (Langue)</span>
+              <small id="profileLangLabel">العربية (Mauritanie)</small>
+            </div>
+            <button class="btn-3d btn-glass" style="padding: 4px 10px; font-size: 0.72rem;" id="profileLangToggle">Changer en Français</button>
+          </div>
+
+          <div class="settings-row" onclick="BEYTI_COMMON.showToast('ضمان بيتي: إصلاح مجاني خلال 30 يوماً في حال تكرر العطل!', 'fa-shield-halved');">
+            <div class="row-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="row-text">
+              <span data-ar="ضمان بيتي 30 يوماً وسياسة الجودة" data-fr="Garantie Baiti 30 Jours">ضمان بيتي 30 يوماً وسياسة الجودة</span>
+              <small data-ar="حماية العميل وإعادة الصيانة مجاناً" data-fr="Protection client et travail garanti">حماية العميل وإعادة الصيانة مجاناً</small>
+            </div>
+            <i class="fa-solid fa-chevron-left arrow flip-ltr"></i>
+          </div>
+
+          <a href="tel:+22245000000" class="settings-row">
+            <div class="row-icon"><i class="fa-solid fa-headset"></i></div>
+            <div class="row-text">
+              <span data-ar="مركز مساعدة بيتي (الدعم الفوري)" data-fr="Support & Assistance 24/7">مركز مساعدة بيتي (الدعم الفوري)</span>
+              <small data-ar="متاح 24/7 عبر الهاتف والواتساب" data-fr="Disponible 24/7 téléphone et WhatsApp">متاح 24/7 عبر الهاتف والواتساب</small>
+            </div>
+            <i class="fa-solid fa-chevron-left arrow flip-ltr"></i>
+          </a>
+        </section>
+
+        <!-- Become an Artisan Banner -->
+        <section class="puffy-card" style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); color: #fff;">
+          <div style="display: flex; gap: 12px; align-items: center;">
+            <div style="width: 50px; height: 50px; border-radius: var(--radius-md); background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 1.4rem;">
+              <i class="fa-solid fa-id-card-clip"></i>
+            </div>
+            <div style="flex: 1;">
+              <h4 style="font-size: 0.92rem; font-weight: 800;" data-ar="هل أنت فني أو صاحب حرفة بنواكشوط؟" data-fr="Artisan ou Professionnel à Nouakchott ?">هل أنت فني أو صاحب حرفة بنواكشوط؟</h4>
+              <p style="font-size: 0.72rem; opacity: 0.85;" data-ar="انضم لشبكة الـ 29 حِرفياً المعتمدين وضاعف دخلك اليومي." data-fr="Rejoignez notre réseau agréé et développez votre activité.">انضم لشبكة الـ 29 حِرفياً المعتمدين وضاعف دخلك.</p>
+            </div>
+          </div>
+          <button type="button" class="btn-3d btn-glass" style="width: 100%; margin-top: 12px; padding: 10px; font-size: 0.82rem;" onclick="BEYTI_COMMON.showToast('تم فتح استمارة التسجيل لمزودي الخدمة!', 'fa-id-card');">
+            <span data-ar="سجل الآن كمزود خدمة معتمد" data-fr="S'inscrire comme Prestataire">سجل الآن كمزود خدمة معتمد</span>
+          </button>
+        </section>
+
+      </div> <!-- /app-scroll-body -->
+
+      <!-- Fixed 5-Tab Bottom Dock Nav -->
+      <nav class="bottom-dock-nav" aria-label="Bottom Navigation">
+        <a href="home.html" class="nav-tab-btn">
+          <div class="tab-icon-wrap"><i class="fa-solid fa-house"></i></div>
+          <span class="tab-label" data-ar="الرئيسية" data-fr="Accueil">الرئيسية</span>
+        </a>
+        <a href="providers.html" class="nav-tab-btn">
+          <div class="tab-icon-wrap"><i class="fa-solid fa-users-gear"></i></div>
+          <span class="tab-label" data-ar="الموردون" data-fr="Artisans">الموردون</span>
+        </a>
+        <a href="order.html" class="nav-tab-center-btn" aria-label="طلب فوري">
+          <div class="center-btn-orb"><i class="fa-solid fa-bolt"></i></div>
+          <span class="center-btn-label" data-ar="طلب فوري" data-fr="Express">طلب فوري</span>
+        </a>
+        <a href="tracking.html" class="nav-tab-btn">
+          <div class="tab-icon-wrap"><i class="fa-solid fa-location-crosshairs"></i></div>
+          <span class="tab-label" data-ar="التتبع" data-fr="Suivi">التتبع</span>
+        </a>
+        <a href="profile.html" class="nav-tab-btn active">
+          <div class="tab-icon-wrap"><i class="fa-solid fa-user"></i></div>
+          <span class="tab-label" data-ar="ملفي وطلباتي" data-fr="Profil">ملفي وطلباتي</span>
+        </a>
+      </nav>
+
+      <div class="phone-home-indicator"></div>
+    </main>
+  </div>
+
+  <div class="toast-hub" id="toastHub"></div>
+  <script src="common.js"></script>
+</body>
+
+</html>
+

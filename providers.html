@@ -1,0 +1,317 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>الموردون والحرفيون المعتمدون | بيتي - نواكشوط</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Desktop Presentation Controls -->
+  <aside class="desktop-dock" id="desktopDock">
+    <div class="dock-brand">
+      <img src="assets/puffy_house.jpg" alt="Beyti Logo" class="dock-logo">
+      <div class="dock-info">
+        <span class="dock-title">بيتي | Beyti Service</span>
+        <span class="dock-tag" data-ar="الموردون المعتمدون" data-fr="Artisans & Professionnels">الموردون المعتمدون</span>
+      </div>
+    </div>
+    <div class="dock-actions">
+      <a href="compare.html" class="dock-btn">
+        <i class="fa-solid fa-scale-balanced"></i> <span data-ar="مقارنة العروض" data-fr="Comparer">مقارنة العروض</span>
+      </a>
+      <button class="dock-btn active" id="btnPhoneView"><i class="fa-solid fa-mobile-screen"></i> <span>الهاتف</span></button>
+      <button class="dock-btn" id="btnFullView"><i class="fa-solid fa-expand"></i> <span>كامل</span></button>
+      <button class="dock-btn lang-toggle" id="dockLangBtn"><i class="fa-solid fa-globe"></i> <span id="dockLangLabel">Français</span></button>
+    </div>
+  </aside>
+
+  <!-- App Viewport -->
+  <div class="app-viewport-wrapper">
+    <main class="mobile-phone-frame" id="phoneFrame">
+
+      <!-- Dynamic Island -->
+      <div class="phone-notch">
+        <div class="dynamic-island">
+          <span class="island-dot pulse"></span>
+          <span data-ar="29 حِرفياً مؤهلاً متاحين الآن" data-fr="29 Professionnels Disponibles">29 حِرفياً مؤهلاً متاحين الآن</span>
+        </div>
+      </div>
+
+      <!-- Status Bar -->
+      <header class="app-status-bar">
+        <span class="status-time" id="statusClock">12:45</span>
+        <div class="status-icons">
+          <i class="fa-solid fa-signal"></i>
+          <i class="fa-solid fa-wifi"></i>
+          <i class="fa-solid fa-battery-full"></i>
+        </div>
+      </header>
+
+      <!-- App Header Nav -->
+      <nav class="app-header-nav">
+        <div class="brand-row">
+          <div class="brand-meta">
+            <a href="home.html"><img src="assets/puffy_house.jpg" alt="بيتي" class="app-logo-img"></a>
+            <div class="brand-text">
+              <h1 class="brand-name" data-ar="مزودو الخدمات" data-fr="Nos Artisans">مزودو الخدمات</h1>
+              <p class="brand-city"><i class="fa-solid fa-circle-check" style="color: #10b981;"></i> <span data-ar="معتمدون ومفحوصون 100%" data-fr="100% Vérifiés">معتمدون ومفحوصون 100%</span></p>
+            </div>
+          </div>
+          <div class="header-actions">
+            <button class="icon-chip lang-chip" id="langSwitchBtn">
+              <i class="fa-solid fa-language"></i>
+              <span id="currentLangTag">FR</span>
+            </button>
+            <a href="compare.html" class="icon-chip" title="مقارنة الأسعار">
+              <i class="fa-solid fa-scale-balanced"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Category Filter Pills -->
+        <div class="filter-pills-scroll" id="craftPills">
+          <button class="pill-btn active" data-craft="all"><span data-ar="الكل (29)" data-fr="Tous (29)">الكل (29)</span></button>
+          <button class="pill-btn" data-craft="cleaning"><i class="fa-solid fa-broom"></i> <span data-ar="تنظيف" data-fr="Ménage">تنظيف</span></button>
+          <button class="pill-btn" data-craft="plumbing"><i class="fa-solid fa-faucet-drip"></i> <span data-ar="سباكة" data-fr="Plomberie">سباكة</span></button>
+          <button class="pill-btn" data-craft="electricity"><i class="fa-solid fa-bolt"></i> <span data-ar="كهرباء" data-fr="Électricité">كهرباء</span></button>
+          <button class="pill-btn" data-craft="maintenance"><i class="fa-solid fa-wrench"></i> <span data-ar="صيانة" data-fr="Entretien">صيانة</span></button>
+          <button class="pill-btn" data-craft="transport"><i class="fa-solid fa-truck"></i> <span data-ar="نقل" data-fr="Transport">نقل</span></button>
+          <button class="pill-btn" data-craft="meera"><i class="fa-solid fa-basket-shopping"></i> <span data-ar="ميرة" data-fr="Courses">ميرة</span></button>
+        </div>
+      </nav>
+
+      <!-- Scroll Body -->
+      <div class="app-scroll-body">
+
+        <!-- Top Comparison CTA -->
+        <div style="background: linear-gradient(135deg, #e4f0ff 0%, #cde2fe 100%); border-radius: var(--radius-md); padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; border: 1.5px solid #fff; box-shadow: var(--puffy-card-shadow);">
+          <div>
+            <strong style="font-size: 0.88rem; color: var(--puffy-navy-dark);" data-ar="تريد مقارنة تفصيلية للأسعار؟" data-fr="Comparer les tarifs en détail ?">تريد مقارنة تفصيلية للأسعار؟</strong>
+            <p style="font-size: 0.74rem; color: var(--text-secondary);" data-ar="قارن عروض بيتي مقابل أسعار السوق التقليدي" data-fr="Baiti vs Marché traditionnel">قارن عروض بيتي مقابل السوق</p>
+          </div>
+          <a href="compare.html" class="btn-3d btn-glow-primary" style="padding: 6px 14px; font-size: 0.78rem;">
+            <i class="fa-solid fa-scale-balanced"></i> <span data-ar="قارن الآن" data-fr="Comparer">قارن الآن</span>
+          </a>
+        </div>
+
+        <!-- Providers List -->
+        <div style="display: flex; flex-direction: column; gap: 12px;" id="providersListContainer">
+
+          <!-- Provider 1: Sidi Plumbing -->
+          <article class="provider-card-3d" data-category="plumbing">
+            <div class="provider-header">
+              <img src="assets/puffy_artisan.jpg" alt="سيدي محمد" class="provider-avatar">
+              <div class="provider-info">
+                <div class="provider-name-row">
+                  <span class="provider-name">سيدي محمد البشير</span>
+                  <span class="provider-rating"><i class="fa-solid fa-star"></i> 4.95 (142)</span>
+                </div>
+                <span class="provider-craft"><i class="fa-solid fa-faucet-drip"></i> خبير سباكة وتمديدات صحية</span>
+                <span class="provider-location"><i class="fa-solid fa-location-dot"></i> تفرغ زينة ولكصر • استجابة 15 دقيقة</span>
+                <div class="provider-badges-row" style="margin-top: 4px;">
+                  <span class="micro-badge">معتمد من بيتي</span>
+                  <span class="micro-badge">650+ مهمة</span>
+                  <span class="micro-badge" style="background: #e8f5e9; color: #2e7d32;">ضمان 30 يوم</span>
+                </div>
+              </div>
+            </div>
+            <div class="provider-footer">
+              <div>
+                <small style="color: var(--text-secondary); font-size: 0.7rem;" data-ar="أجرة العمل التقديرية:" data-fr="Tarif estimé :">أجرة العمل التقديرية:</small>
+                <div class="provider-price">350 - 400 MRU</div>
+              </div>
+              <div class="provider-actions">
+                <a href="tel:+22245000001" class="btn-icon-action" title="اتصال"><i class="fa-solid fa-phone"></i></a>
+                <a href="https://wa.me/22200000001" target="_blank" class="btn-icon-action wa" title="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="order.html?tech=sidi&craft=plumbing" class="btn-card-action" style="padding: 6px 14px; width: auto;" data-ar="طلب فوري" data-fr="Réserver">طلب فوري</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Provider 2: Ahmedou Electricity -->
+          <article class="provider-card-3d" data-category="electricity">
+            <div class="provider-header">
+              <img src="assets/hero.jpg" alt="أحمدو فال" class="provider-avatar">
+              <div class="provider-info">
+                <div class="provider-name-row">
+                  <span class="provider-name">أحمدو ولد فال</span>
+                  <span class="provider-rating"><i class="fa-solid fa-star"></i> 4.88 (98)</span>
+                </div>
+                <span class="provider-craft"><i class="fa-solid fa-bolt"></i> فني كهرباء عامة ومكيفات</span>
+                <span class="provider-location"><i class="fa-solid fa-location-dot"></i> لكصر وعرفات وتيارت</span>
+                <div class="provider-badges-row" style="margin-top: 4px;">
+                  <span class="micro-badge">فحص بالأجهزة الحديثة</span>
+                  <span class="micro-badge">420+ مهمة</span>
+                </div>
+              </div>
+            </div>
+            <div class="provider-footer">
+              <div>
+                <small style="color: var(--text-secondary); font-size: 0.7rem;" data-ar="أجرة العمل التقديرية:" data-fr="Tarif estimé :">أجرة العمل التقديرية:</small>
+                <div class="provider-price">400 - 500 MRU</div>
+              </div>
+              <div class="provider-actions">
+                <a href="tel:+22245000002" class="btn-icon-action" title="اتصال"><i class="fa-solid fa-phone"></i></a>
+                <a href="https://wa.me/22200000002" target="_blank" class="btn-icon-action wa" title="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="order.html?tech=ahmedou&craft=electricity" class="btn-card-action" style="padding: 6px 14px; width: auto;" data-ar="طلب فوري" data-fr="Réserver">طلب فوري</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Provider 3: Fatimetou Cleaning Team (Privacy for Families) -->
+          <article class="provider-card-3d" data-category="cleaning">
+            <div class="provider-header">
+              <img src="assets/niqabi_avatar.jpg" alt="فريق النظافة العائلي" class="provider-avatar">
+              <div class="provider-info">
+                <div class="provider-name-row">
+                  <span class="provider-name">فريق النقاء (خدمة خصوصية العائلات)</span>
+                  <span class="provider-rating"><i class="fa-solid fa-star"></i> 4.98 (210)</span>
+                </div>
+                <span class="provider-craft"><i class="fa-solid fa-broom"></i> تنظيف منازل نسائي معتمد</span>
+                <span class="provider-location"><i class="fa-solid fa-location-dot"></i> كافة مقاطعات نواكشوط</span>
+                <div class="provider-badges-row" style="margin-top: 4px;">
+                  <span class="micro-badge" style="background: #fdf2f8; color: #be185d;">خصوصية تامة</span>
+                  <span class="micro-badge">أجهزة بخار وتعقيم</span>
+                </div>
+              </div>
+            </div>
+            <div class="provider-footer">
+              <div>
+                <small style="color: var(--text-secondary); font-size: 0.7rem;" data-ar="أجرة الشقة / المنزل:" data-fr="Tarif appartement :">أجرة الشقة / المنزل:</small>
+                <div class="provider-price">600 - 1,200 MRU</div>
+              </div>
+              <div class="provider-actions">
+                <a href="tel:+22245000003" class="btn-icon-action" title="اتصال"><i class="fa-solid fa-phone"></i></a>
+                <a href="https://wa.me/22200000003" target="_blank" class="btn-icon-action wa" title="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="order.html?tech=naqaa&craft=cleaning" class="btn-card-action" style="padding: 6px 14px; width: auto;" data-ar="طلب فوري" data-fr="Réserver">طلب فوري</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Provider 4: Cheikh Maintenance -->
+          <article class="provider-card-3d" data-category="maintenance">
+            <div class="provider-header">
+              <img src="assets/puffy_artisan.jpg" alt="الشيخ ولد الداه" class="provider-avatar">
+              <div class="provider-info">
+                <div class="provider-name-row">
+                  <span class="provider-name">الشيخ ولد الداه</span>
+                  <span class="provider-rating"><i class="fa-solid fa-star"></i> 4.91 (160)</span>
+                </div>
+                <span class="provider-craft"><i class="fa-solid fa-screwdriver-wrench"></i> صيانة مكيفات وترميمات عامة</span>
+                <span class="provider-location"><i class="fa-solid fa-location-dot"></i> دار النعيم وتوجنين وعرفات</span>
+                <div class="provider-badges-row" style="margin-top: 4px;">
+                  <span class="micro-badge">قطع غيار أصلية</span>
+                  <span class="micro-badge">310+ مهمة</span>
+                </div>
+              </div>
+            </div>
+            <div class="provider-footer">
+              <div>
+                <small style="color: var(--text-secondary); font-size: 0.7rem;" data-ar="أجرة الكشف والصيانة:" data-fr="Tarif entretien :">أجرة الكشف والصيانة:</small>
+                <div class="provider-price">450 MRU</div>
+              </div>
+              <div class="provider-actions">
+                <a href="tel:+22245000004" class="btn-icon-action" title="اتصال"><i class="fa-solid fa-phone"></i></a>
+                <a href="https://wa.me/22200000004" target="_blank" class="btn-icon-action wa" title="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="order.html?tech=cheikh&craft=maintenance" class="btn-card-action" style="padding: 6px 14px; width: auto;" data-ar="طلب فوري" data-fr="Réserver">طلب فوري</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Provider 5: Bilal Meera Runner -->
+          <article class="provider-card-3d" data-category="meera">
+            <div class="provider-header">
+              <img src="assets/meera.jpg" alt="بلال - مندوب ميرة" class="provider-avatar">
+              <div class="provider-info">
+                <div class="provider-name-row">
+                  <span class="provider-name">بلال ولد مسعود</span>
+                  <span class="provider-rating"><i class="fa-solid fa-star"></i> 4.96 (330)</span>
+                </div>
+                <span class="provider-craft" style="color: #ea580c;"><i class="fa-solid fa-basket-shopping"></i> مندوب تسوق وتموين (ميرة بيتي)</span>
+                <span class="provider-location"><i class="fa-solid fa-location-dot"></i> سوق العاصمة وكافة المقاطعات</span>
+                <div class="provider-badges-row" style="margin-top: 4px;">
+                  <span class="micro-badge" style="background: #fff7ed; color: #c2410c;">دراجة سريعة</span>
+                  <span class="micro-badge">فاتورة رسمية</span>
+                </div>
+              </div>
+            </div>
+            <div class="provider-footer">
+              <div>
+                <small style="color: var(--text-secondary); font-size: 0.7rem;" data-ar="رسوم التوصيل فقط:" data-fr="Frais de livraison :">رسوم التوصيل فقط:</small>
+                <div class="provider-price">150 - 200 MRU</div>
+              </div>
+              <div class="provider-actions">
+                <a href="tel:+22245000005" class="btn-icon-action" title="اتصال"><i class="fa-solid fa-phone"></i></a>
+                <a href="https://wa.me/22200000005" target="_blank" class="btn-icon-action wa" title="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="order.html?service=meera" class="btn-card-action" style="padding: 6px 14px; width: auto; background: linear-gradient(150deg, #f97316, #ea580c);" data-ar="طلب ميرة" data-fr="Commander">طلب ميرة</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div> <!-- /app-scroll-body -->
+
+      <!-- Fixed 5-Tab Bottom Dock Nav -->
+      <nav class="bottom-dock-nav" aria-label="Bottom Navigation">
+        <a href="home.html" class="nav-tab-btn">
+          <div class="tab-icon-wrap"><i class="fa-solid fa-house"></i></div>
+          <span class="tab-label" data-ar="الرئيسية" data-fr="Accueil">الرئيسية</span>
+        </a>
+        <a href="providers.html" class="nav-tab-btn active">
+          <div class="tab-icon-wrap"><i class="fa-solid fa-users-gear"></i></div>
+          <span class="tab-label" data-ar="الموردون" data-fr="Artisans">الموردون</span>
+        </a>
+        <a href="order.html" class="nav-tab-center-btn" aria-label="طلب فوري">
+          <div class="center-btn-orb"><i class="fa-solid fa-bolt"></i></div>
+          <span class="center-btn-label" data-ar="طلب فوري" data-fr="Express">طلب فوري</span>
+        </a>
+        <a href="tracking.html" class="nav-tab-btn">
+          <div class="tab-icon-wrap"><i class="fa-solid fa-location-crosshairs"></i></div>
+          <span class="tab-label" data-ar="التتبع" data-fr="Suivi">التتبع</span>
+        </a>
+        <a href="profile.html" class="nav-tab-btn">
+          <div class="tab-icon-wrap"><i class="fa-solid fa-user"></i></div>
+          <span class="tab-label" data-ar="ملفي وطلباتي" data-fr="Profil">ملفي وطلباتي</span>
+        </a>
+      </nav>
+
+      <div class="phone-home-indicator"></div>
+    </main>
+  </div>
+
+  <div class="toast-hub" id="toastHub"></div>
+  <script src="common.js"></script>
+  <script>
+    // Craft Filter Logic
+    document.querySelectorAll('#craftPills .pill-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#craftPills .pill-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const craft = btn.dataset.craft;
+        const cards = document.querySelectorAll('#providersListContainer .provider-card-3d');
+        cards.forEach(card => {
+          if (craft === 'all' || card.dataset.category === craft) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
+

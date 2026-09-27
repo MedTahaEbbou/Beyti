@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>تقييم موثق وآراء العملاء | بيتي - نواكشوط</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <aside class="desktop-dock" id="desktopDock">
+    <div class="dock-brand">
+      <img src="assets/puffy_house.jpg" alt="Beyti Logo" class="dock-logo">
+      <div class="dock-info">
+        <span class="dock-title">بيتي | Beyti Service</span>
+        <span class="dock-tag" data-ar="تقييم موثق وجودة مضمونة" data-fr="Avis Vérifiés & Qualité">تقييم موثق وجودة مضمونة</span>
+      </div>
+    </div>
+    <div class="dock-actions">
+      <a href="home.html" class="dock-btn"><i class="fa-solid fa-house"></i> <span>الرئيسية</span></a>
+      <button class="dock-btn active" id="btnPhoneView"><i class="fa-solid fa-mobile-screen"></i> <span>الهاتف</span></button>
+      <button class="dock-btn" id="btnFullView"><i class="fa-solid fa-expand"></i> <span>كامل</span></button>
+      <button class="dock-btn lang-toggle" id="dockLangBtn"><i class="fa-solid fa-globe"></i> <span id="dockLangLabel">Français</span></button>
+    </div>
+  </aside>
+
+  <div class="app-viewport-wrapper">
+    <main class="mobile-phone-frame" id="phoneFrame">
+
+      <div class="phone-notch">
+        <div class="dynamic-island">
+          <span class="island-dot pulse"></span>
+          <span data-ar="تقييم عام: 4.95 / 5 ★" data-fr="Score Global : 4.95 / 5 ★">تقييم عام: 4.95 / 5 ★</span>
+        </div>
+      </div>
+
+      <header class="app-status-bar">
+        <span class="status-time" id="statusClock">12:45</span>
+        <div class="status-icons">
+          <i class="fa-solid fa-signal"></i>
+          <i class="fa-solid fa-wifi"></i>
+          <i class="fa-solid fa-battery-full"></i>
+        </div>
+      </header>
+
+      <nav class="app-header-nav">
+        <div class="brand-row">
+          <div class="brand-meta">
+            <a href="home.html"><img src="assets/puffy_house.jpg" alt="بيتي" class="app-logo-img"></a>
+            <div class="brand-text">
+              <h1 class="brand-name" data-ar="تقييم موثق" data-fr="Avis Vérifiés">تقييم موثق</h1>
+              <p class="brand-city"><i class="fa-solid fa-award" style="color: #f59e0b;"></i> <span data-ar="آراء حقيقية من سكان نواكشوط" data-fr="Retours réels des résidents">آراء حقيقية من سكان نواكشوط</span></p>
+            </div>
+          </div>
+          <div class="header-actions">
+            <button class="icon-chip lang-chip" id="langSwitchBtn">
+              <i class="fa-solid fa-language"></i>
+              <span id="currentLangTag">FR</span>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <div class="app-scroll-body">
+
+        <!-- Rating Summary Card -->
+        <section class="puffy-card" style="text-align: center;">
+          <div style="font-size: 2.4rem; font-weight: 900; color: var(--puffy-blue-600); line-height: 1;">4.95</div>
+          <div style="color: #f59e0b; font-size: 1.1rem; margin: 4px 0;">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <span style="font-size: 0.78rem; color: var(--text-secondary);" data-ar="مبني على 322 مستطلعاً و 1,840+ خدمة منجزة" data-fr="Basé sur 322 sondés et 1 840+ interventions">مبني على 322 مستطلعاً و 1,840+ خدمة منجزة</span>
+
+          <!-- Quality Pillars -->
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 14px; text-align: right;">
+            <div style="background: #f8fafc; padding: 8px 12px; border-radius: var(--radius-sm); border: 1px solid #e2e8f0;">
+              <small style="display: block; font-size: 0.68rem; color: var(--text-secondary);">دقة في الموعد</small>
+              <strong style="color: #10b981; font-size: 0.88rem;">99% التزام</strong>
+            </div>
+            <div style="background: #f8fafc; padding: 8px 12px; border-radius: var(--radius-sm); border: 1px solid #e2e8f0;">
+              <small style="display: block; font-size: 0.68rem; color: var(--text-secondary);">إتقان واحترافية</small>
+              <strong style="color: #2563eb; font-size: 0.88rem;">98% رضا تام</strong>
+            </div>
+            <div style="background: #f8fafc; padding: 8px 12px; border-radius: var(--radius-sm); border: 1px solid #e2e8f0;">
+              <small style="display: block; font-size: 0.68rem; color: var(--text-secondary);">حسن التعامل والأمانة</small>
+              <strong style="color: #7c3aed; font-size: 0.88rem;">100% ثقة</strong>
+            </div>
+            <div style="background: #f8fafc; padding: 8px 12px; border-radius: var(--radius-sm); border: 1px solid #e2e8f0;">
+              <small style="display: block; font-size: 0.68rem; color: var(--text-secondary);">الشفافية في الأسعار</small>
+              <strong style="color: #f59e0b; font-size: 0.88rem;">400 MRU تقريبي</strong>
+            </div>
+          </div>
+        </section>
+
+        <!-- Reviews List -->
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+
+          <!-- Review 1: Family Privacy & Cleanliness -->
+          <div class="puffy-card" style="padding: 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px;">
+              <div>
+                <strong style="font-size: 0.88rem; color: var(--puffy-navy-dark);">عائشة بنت أحمد</strong>
+                <small style="display: block; font-size: 0.68rem; color: var(--text-secondary);">تفرغ زينة • خدمة تنظيف المنازل</small>
+              </div>
+              <span class="micro-badge" style="background: #ecfdf5; color: #047857;"><i class="fa-solid fa-circle-check"></i> عميل موثق</span>
+            </div>
+            <div style="color: #f59e0b; font-size: 0.75rem; margin-bottom: 6px;">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p style="font-size: 0.76rem; color: var(--text-primary); line-height: 1.45;">
+              "تجربة ممتازة جداً. احترام تام لخصوصية العائلات ووصول في الموعد المحدد. فريق النظافة كان ماهراً وأجهزتهم حديثة، والسعر مطابق لما عُرض في التطبيق تماماً."
+            </p>
+          </div>
+
+          <!-- Review 2: Emergency Plumbing -->
+          <div class="puffy-card" style="padding: 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px;">
+              <div>
+                <strong style="font-size: 0.88rem; color: var(--puffy-navy-dark);">محمد ولد الشيخ</strong>
+                <small style="display: block; font-size: 0.68rem; color: var(--text-secondary);">لكصر • طوارئ سباكة</small>
+              </div>
+              <span class="micro-badge" style="background: #ecfdf5; color: #047857;"><i class="fa-solid fa-circle-check"></i> عميل موثق</span>
+            </div>
+            <div style="color: #f59e0b; font-size: 0.75rem; margin-bottom: 6px;">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p style="font-size: 0.76rem; color: var(--text-primary); line-height: 1.45;">
+              "كان لدينا تسرب ماء حاد في الليل؛ وصل الفني سيدي محمد خلال 18 دقيقة فقط وأصلح العطل فوراً بدون أي استغلال للأجرة (400 MRU). بيتي حل حقيقي لمعاناة الأسر."
+            </p>
+          </div>
+
+          <!-- Review 3: Meera Service -->
+          <div class="puffy-card" style="padding: 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px;">
+              <div>
+                <strong style="font-size: 0.88rem; color: var(--puffy-navy-dark);">سالم ولد عبد الله</strong>
+                <small style="display: block; font-size: 0.68rem; color: var(--text-secondary);">عرفات • خدمة طلب ميرة</small>
+              </div>
+              <span class="micro-badge" style="background: #ecfdf5; color: #047857;"><i class="fa-solid fa-circle-check"></i> عميل موثق</span>
+            </div>
+            <div style="color: #f59e0b; font-size: 0.75rem; margin-bottom: 6px;">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p style="font-size: 0.76rem; color: var(--text-primary); line-height: 1.45;">
+              "خدمة طلب ميرة وفرت علي عناء الذهاب لسوق العاصمة. المندوب اشترى الأرز والتموين وسلمني الفاتورة الدقيقة للدكان ورسوم التوصيل كانت رمزية جداً."
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Add Review Interactive Section -->
+        <section class="puffy-card" id="submitReviewCard">
+          <h4 style="font-size: 0.95rem; font-weight: 800; color: var(--puffy-navy-dark); margin-bottom: 8px;" data-ar="شاركنا تقييمك وتجربتك:" data-fr="Laissez votre avis :">شاركنا تقييمك وتجربتك:</h4>
+
+          <div style="display: flex; justify-content: center; gap: 8px; font-size: 1.6rem; color: #d1d5db; margin: 10px 0;" id="starPicker">
+            <i class="fa-solid fa-star" data-val="1" style="cursor: pointer; color: #f59e0b;"></i>
+            <i class="fa-solid fa-star" data-val="2" style="cursor: pointer; color: #f59e0b;"></i>
+            <i class="fa-solid fa-star" data-val="3" style="cursor: pointer; color: #f59e0b;"></i>
+            <i class="fa-solid fa-star" data-val="4" style="cursor: pointer; color: #f59e0b;"></i>
+            <i class="fa-solid fa-star" data-val="5" style="cursor: pointer; color: #f59e0b;"></i>
+          </div>
+
+          <textarea id="reviewText" rows="2" class="search-input-wrap" style="width: 100%; border-radius: var(--radius-md); resize: none; font-size: 0.8rem; padding: 10px; margin-bottom: 10px;" placeholder="اكتب ملاحظتك لضمان جودة الحرفيين لجميع الأسر..." data-ar="اكتب ملاحظتك لضمان جودة الحرفيين..." data-fr="Écrivez votre commentaire..."></textarea>
+
+          <button type="button" class="btn-3d btn-glow-primary" style="width: 100%; padding: 12px; font-size: 0.88rem;" onclick="submitUserReview()">
+            <i class="fa-solid fa-paper-plane"></i> <span data-ar="إرسال التقييم الموثق" data-fr="Publier l'Avis">إرسال التقييم الموثق</span>
+          </button>
+        </section>
+
+      </div> <!-- /app-scroll-body -->
+
+      <!-- Fixed 5-Tab Bottom Dock Nav -->
+      <nav class="bottom-dock-nav" aria-label="Bottom Navigation">
+        <a href="home.html" class="nav-tab-btn">
+          <div class="tab-icon-wrap"><i class="fa-solid fa-house"></i></div>
+          <span class="tab-label" data-ar="الرئيسية" data-fr="Accueil">الرئيسية</span>
+        </a>
+        <a href="providers.html" class="nav-tab-btn">
+          <div class="tab-icon-wrap"><i class="fa-solid fa-users-gear"></i></div>
+          <span class="tab-label" data-ar="الموردون" data-fr="Artisans">الموردون</span>
+        </a>
+        <a href="order.html" class="nav-tab-center-btn" aria-label="طلب فوري">
+          <div class="center-btn-orb"><i class="fa-solid fa-bolt"></i></div>
+          <span class="center-btn-label" data-ar="طلب فوري" data-fr="Express">طلب فوري</span>
+        </a>
+        <a href="tracking.html" class="nav-tab-btn">
+          <div class="tab-icon-wrap"><i class="fa-solid fa-location-crosshairs"></i></div>
+          <span class="tab-label" data-ar="التتبع" data-fr="Suivi">التتبع</span>
+        </a>
+        <a href="profile.html" class="nav-tab-btn">
+          <div class="tab-icon-wrap"><i class="fa-solid fa-user"></i></div>
+          <span class="tab-label" data-ar="ملفي وطلباتي" data-fr="Profil">ملفي وطلباتي</span>
+        </a>
+      </nav>
+
+      <div class="phone-home-indicator"></div>
+    </main>
+  </div>
+
+  <div class="toast-hub" id="toastHub"></div>
+  <script src="common.js"></script>
+  <script>
+    let selectedRating = 5;
+    const stars = document.querySelectorAll('#starPicker i');
+    stars.forEach(s => {
+      s.addEventListener('click', () => {
+        selectedRating = parseInt(s.dataset.val);
+        stars.forEach((star, idx) => {
+          star.style.color = idx < selectedRating ? '#f59e0b' : '#d1d5db';
+        });
+      });
+    });
+
+    function submitUserReview() {
+      const txt = document.getElementById('reviewText').value.trim();
+      if (!txt) {
+        BEYTI_COMMON.showToast('يرجى كتابة تعليقك قبل الإرسال', 'fa-circle-exclamation');
+        return;
+      }
+      BEYTI_COMMON.showToast('شكراً لك! تم اعتماد تقييمك الموثق بنجاح.', 'fa-star');
+      document.getElementById('reviewText').value = '';
+    }
+  </script>
+</body>
+
+</html>
+

@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>طلب فوري | بيتي للخدمات المنزلية - نواكشوط</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Desktop Presentation Controls -->
+  <aside class="desktop-dock" id="desktopDock">
+    <div class="dock-brand">
+      <img src="assets/puffy_house.jpg" alt="Beyti Logo" class="dock-logo">
+      <div class="dock-info">
+        <span class="dock-title">بيتي | Beyti Service</span>
+        <span class="dock-tag" data-ar="طلب فوري (استجابة 30 دقيقة)" data-fr="Demande Express (30 min)">طلب فوري (استجابة 30 دقيقة)</span>
+      </div>
+    </div>
+    <div class="dock-actions">
+      <button class="dock-btn active" id="btnPhoneView"><i class="fa-solid fa-mobile-screen"></i> <span>الهاتف</span></button>
+      <button class="dock-btn" id="btnFullView"><i class="fa-solid fa-expand"></i> <span>كامل</span></button>
+      <button class="dock-btn lang-toggle" id="dockLangBtn"><i class="fa-solid fa-globe"></i> <span id="dockLangLabel">Français</span></button>
+    </div>
+  </aside>
+
+  <!-- App Viewport -->
+  <div class="app-viewport-wrapper">
+    <main class="mobile-phone-frame" id="phoneFrame">
+
+      <!-- Dynamic Island -->
+      <div class="phone-notch">
+        <div class="dynamic-island">
+          <span class="island-dot pulse"></span>
+          <span data-ar="استجابة سريعة خلال 30 دقيقة" data-fr="Intervention en 30 minutes">استجابة سريعة خلال 30 دقيقة</span>
+        </div>
+      </div>
+
+      <!-- Status Bar -->
+      <header class="app-status-bar">
+        <span class="status-time" id="statusClock">12:45</span>
+        <div class="status-icons">
+          <i class="fa-solid fa-signal"></i>
+          <i class="fa-solid fa-wifi"></i>
+          <i class="fa-solid fa-battery-full"></i>
+        </div>
+      </header>
+
+      <!-- App Header Nav -->
+      <nav class="app-header-nav">
+        <div class="brand-row">
+          <div class="brand-meta">
+            <a href="home.html"><img src="assets/puffy_house.jpg" alt="بيتي" class="app-logo-img"></a>
+            <div class="brand-text">
+              <h1 class="brand-name" data-ar="طلب فوري" data-fr="Demande Express">طلب فوري</h1>
+              <p class="brand-city"><i class="fa-solid fa-bolt" style="color: #f59e0b;"></i> <span data-ar="سعر تقديري مسبق 400 MRU" data-fr="Prix estimé à l'avance 400 MRU">سعر تقديري مسبق 400 MRU</span></p>
+            </div>
+          </div>
+          <div class="header-actions">
+            <button class="icon-chip lang-chip" id="langSwitchBtn">
+              <i class="fa-solid fa-language"></i>
+              <span id="currentLangTag">FR</span>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Scroll Body -->
+      <div class="app-scroll-body">
+
+        <!-- Form Card -->
+        <section class="puffy-card">
+          <form id="orderForm" onsubmit="handleOrderSubmit(event)">
+            
+            <!-- Service Selector Chips -->
+            <div style="margin-bottom: 16px;">
+              <label style="display: block; font-weight: 800; font-size: 0.85rem; margin-bottom: 8px; color: var(--puffy-navy-dark);" data-ar="اختر الخدمة المطلوبة:" data-fr="Choisissez le service :">اختر الخدمة المطلوبة:</label>
+              
+              <div class="filter-pills-scroll" id="serviceChips" style="padding: 2px;">
+                <button type="button" class="pill-btn active" data-serv="plumbing" data-price="400"><i class="fa-solid fa-faucet-drip"></i> <span data-ar="سباكة" data-fr="Plomberie">سباكة</span></button>
+                <button type="button" class="pill-btn" data-serv="electricity" data-price="400"><i class="fa-solid fa-bolt"></i> <span data-ar="كهرباء" data-fr="Électricité">كهرباء</span></button>
+                <button type="button" class="pill-btn" data-serv="cleaning" data-price="400"><i class="fa-solid fa-broom"></i> <span data-ar="تنظيف" data-fr="Ménage">تنظيف</span></button>
+                <button type="button" class="pill-btn" data-serv="maintenance" data-price="450"><i class="fa-solid fa-wrench"></i> <span data-ar="صيانة" data-fr="Entretien">صيانة</span></button>
+                <button type="button" class="pill-btn" data-serv="transport" data-price="600"><i class="fa-solid fa-truck"></i> <span data-ar="نقل" data-fr="Transport">نقل</span></button>
+                <button type="button" class="pill-btn" data-serv="meera" data-price="200" style="color: #ea580c;"><i class="fa-solid fa-basket-shopping"></i> <span data-ar="طلب ميرة" data-fr="Courses">طلب ميرة</span></button>
+              </div>
+            </div>
+
+            <!-- District & Address -->
+            <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px;">
+              <div>
+                <label style="display: block; font-weight: 700; font-size: 0.8rem; margin-bottom: 4px; color: var(--text-secondary);" data-ar="المقاطعة في نواكشوط:" data-fr="Zone / Moughataa :">المقاطعة في نواكشوط:</label>
+                <div class="location-pill-3d">
+                  <i class="fa-solid fa-map-pin" style="color: var(--puffy-blue-600);"></i>
+                  <select id="orderDistrict" class="moughataa-dropdown">
+                    <option value="tevragh-zeina" selected>تفرغ زينة (Tevragh-Zeina)</option>
+                    <option value="ksar">لكصر (Ksar)</option>
+                    <option value="arafat">عرفات (Arafat)</option>
+                    <option value="teyarett">تيارت (Teyarett)</option>
+                    <option value="dar-naim">دار النعيم (Dar-Naim)</option>
+                    <option value="toujounine">توجنين (Toujounine)</option>
+                    <option value="riad">الرياض (Riad)</option>
+                    <option value="sebkha">السبخة (Sebkha)</option>
+                    <option value="el-mina">الميناء (El Mina)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label style="display: block; font-weight: 700; font-size: 0.8rem; margin-bottom: 4px; color: var(--text-secondary);" data-ar="الحي أو المعلم البارز:" data-fr="Quartier / Repère :">الحي أو المعلم البارز:</label>
+                <div class="search-input-wrap">
+                  <i class="fa-solid fa-house" style="color: var(--puffy-blue-400);"></i>
+                  <input type="text" id="orderLandmark" required placeholder="مثال: قرب كرفور براد، ملتقى صباح، شارع المختار" data-ar="مثال: قرب كرفور براد، ملتقى صباح..." data-fr="Exemple : Près du Carrefour...">
+                </div>
+              </div>
+            </div>
+
+            <!-- Urgency Selection -->
+            <div style="margin-bottom: 16px;">
+              <label style="display: block; font-weight: 800; font-size: 0.85rem; margin-bottom: 8px; color: var(--puffy-navy-dark);" data-ar="توقيت الزيارة المفضل:" data-fr="Délai d'intervention souhaité :">توقيت الزيارة المفضل:</label>
+              
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <label style="background: #eef6ff; border: 2px solid var(--puffy-blue-500); border-radius: var(--radius-md); padding: 12px; display: flex; align-items: center; gap: 8px; cursor: pointer; box-shadow: var(--puffy-card-shadow);">
+                  <input type="radio" name="urgency" value="now" checked style="accent-color: var(--puffy-blue-600);">
+                  <div>
+                    <strong style="display: block; font-size: 0.82rem; color: var(--puffy-navy-dark);" data-ar="فوري (30 دقيقة)" data-fr="Urgent (30 min)">فوري (30 دقيقة)</strong>
+                    <small style="font-size: 0.68rem; color: var(--text-secondary);" data-ar="للطوارئ والأعطال السريعة" data-fr="Dépannage immédiat">للطوارئ السريعة</small>
+                  </div>
+                </label>
+
+                <label style="background: #ffffff; border: 1.5px solid #d4e6ff; border-radius: var(--radius-md); padding: 12px; display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                  <input type="radio" name="urgency" value="later" style="accent-color: var(--puffy-blue-600);">
+                  <div>
+                    <strong style="display: block; font-size: 0.82rem; color: var(--puffy-navy-dark);" data-ar="موعد لاحق" data-fr="Rendez-vous fixé">موعد لاحق</strong>
+                    <small style="font-size: 0.68rem; color: var(--text-secondary);" data-ar="اليوم أو غداً" data-fr="Aujourd'hui ou demain">اليوم أو غداً</small>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Problem Description & Details -->
+            <div style="margin-bottom: 16px;">
+              <label style="display: block; font-weight: 700; font-size: 0.8rem; margin-bottom: 4px; color: var(--text-secondary);" data-ar="تفاصيل العطل أو طلبك:" data-fr="Description du problème :">تفاصيل العطل أو طلبك:</label>
+              <textarea id="orderNotes" rows="3" class="search-input-wrap" style="width: 100%; border-radius: var(--radius-md); resize: none; font-size: 0.82rem; padding: 10px;" placeholder="اشرح لنا المشكلة بدقة لتوجيه الفني المناسب بالمعدات الصحيحة..." data-ar="اشرح لنا المشكلة بدقة لتوجيه الفني المناسب..." data-fr="Décrivez la panne pour préparer le bon outillage..."></textarea>
+            </div>
+
+            <!-- Voice Simulator -->
+            <div style="background: #f0f7ff; border-radius: var(--radius-md); padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; border: 1px solid #d0e4fe; margin-bottom: 16px;">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-microphone-lines" style="color: var(--puffy-blue-600); font-size: 1.1rem;"></i>
+                <div>
+                  <strong style="font-size: 0.78rem; display: block; color: var(--puffy-navy-dark);" data-ar="تسجيل صوتي (طلب بالصوت)" data-fr="Message vocal">تسجيل صوتي (طلب بالصوت)</strong>
+                  <small style="font-size: 0.68rem; color: var(--text-secondary);" data-ar="تحدث وسيسجل الفني التفاصيل" data-fr="Exprimez votre demande à voix haute">تحدث وسيسجل الفني التفاصيل</small>
+                </div>
+              </div>
+              <button type="button" class="btn-3d btn-glass" style="padding: 6px 12px; font-size: 0.75rem;" onclick="simulateVoiceRecord(this)">
+                <i class="fa-solid fa-microphone"></i> <span data-ar="تسجيل" data-fr="Enregistrer">تسجيل</span>
+              </button>
+            </div>
+
+            <!-- Price Guarantee Box (400 MRU upfront estimate) -->
+            <div style="background: linear-gradient(135deg, #122e5e 0%, #1e4b8f 100%); color: #fff; border-radius: var(--radius-md); padding: 16px; margin-bottom: 20px; box-shadow: 0 10px 25px rgba(18, 46, 94, 0.25);">
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <div>
+                  <small style="opacity: 0.8; font-size: 0.72rem;" data-ar="السعر التقديري المسبق:" data-fr="Prix estimé à l'avance :">السعر التقديري المسبق:</small>
+                  <div style="font-size: 1.5rem; font-weight: 900; color: #60a5fa;" id="estimatedPriceDisplay">400 MRU</div>
+                </div>
+                <div style="text-align: left;">
+                  <span class="micro-badge" style="background: rgba(255,255,255,0.2); color: #fff; border: none;" data-ar="ضمان شفافية 100%" data-fr="Garantie 100%">ضمان شفافية 100%</span>
+                  <div style="font-size: 0.72rem; opacity: 0.85; margin-top: 4px;" data-ar="استجابة خلال 30 دقيقة" data-fr="Arrivée en 30 min">استجابة خلال 30 دقيقة</div>
+                </div>
+              </div>
+              <p style="font-size: 0.72rem; opacity: 0.85; margin-top: 8px; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 6px;"
+                data-ar="نكفل الإفصاح المسبق عن التكلفة التقديرية بشفافية تامة إرساءً لسكينتك وطمأنينتك."
+                data-fr="Prix transparent affiché à l'avance pour rassurer le client avant le début des travaux.">
+                نكفل الإفصاح المسبق عن التكلفة التقديرية بشفافية تامة إرساءً لسكينتك وطمأنينتك.
+              </p>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn-3d btn-glow-primary" style="width: 100%; padding: 14px; font-size: 1rem;">
+              <i class="fa-solid fa-check"></i> <span data-ar="تأكيد وحجز الفني فوراً" data-fr="Confirmer et Envoyer le Technicien">تأكيد وحجز الفني فوراً</span>
+            </button>
+          </form>
+        </section>
+
+      </div> <!-- /app-scroll-body -->
+
+      <!-- Fixed 5-Tab Bottom Dock Nav -->
+      <nav class="bottom-dock-nav" aria-label="Bottom Navigation">
+        <a href="home.html" class="nav-tab-btn">
+          <div class="tab-icon-wrap"><i class="fa-solid fa-house"></i></div>
+          <span class="tab-label" data-ar="الرئيسية" data-fr="Accueil">الرئيسية</span>
+        </a>
+        <a href="providers.html" class="nav-tab-btn">
+          <div class="tab-icon-wrap"><i class="fa-solid fa-users-gear"></i></div>
+          <span class="tab-label" data-ar="الموردون" data-fr="Artisans">الموردون</span>
+        </a>
+        <a href="order.html" class="nav-tab-center-btn active" aria-label="طلب فوري">
+          <div class="center-btn-orb" style="background: linear-gradient(150deg, #38bdf8, #0284c7);"><i class="fa-solid fa-bolt"></i></div>
+          <span class="center-btn-label" data-ar="طلب فوري" data-fr="Express">طلب فوري</span>
+        </a>
+        <a href="tracking.html" class="nav-tab-btn">
+          <div class="tab-icon-wrap"><i class="fa-solid fa-location-crosshairs"></i></div>
+          <span class="tab-label" data-ar="التتبع" data-fr="Suivi">التتبع</span>
+        </a>
+        <a href="profile.html" class="nav-tab-btn">
+          <div class="tab-icon-wrap"><i class="fa-solid fa-user"></i></div>
+          <span class="tab-label" data-ar="ملفي وطلباتي" data-fr="Profil">ملفي وطلباتي</span>
+        </a>
+      </nav>
+
+      <div class="phone-home-indicator"></div>
+    </main>
+  </div>
+
+  <div class="toast-hub" id="toastHub"></div>
+  <script src="common.js"></script>
+  <script>
+    // URL param checks (e.g. ?service=meera or ?service=cleaning)
+    const urlParams = new URLSearchParams(window.location.search);
+    const serviceParam = urlParams.get('service') || urlParams.get('craft');
+
+    if (serviceParam) {
+      const matchChip = document.querySelector(`#serviceChips .pill-btn[data-serv="${serviceParam}"]`);
+      if (matchChip) {
+        document.querySelectorAll('#serviceChips .pill-btn').forEach(b => b.classList.remove('active'));
+        matchChip.classList.add('active');
+        document.getElementById('estimatedPriceDisplay').textContent = `${matchChip.dataset.price} MRU`;
+      }
+    }
+
+    // Service chip selection
+    document.querySelectorAll('#serviceChips .pill-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#serviceChips .pill-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('estimatedPriceDisplay').textContent = `${btn.dataset.price} MRU`;
+      });
+    });
+
+    function simulateVoiceRecord(btn) {
+      btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> جاري التسجيل...';
+      btn.style.color = '#ef4444';
+      setTimeout(() => {
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> تم الحفظ (0:08)';
+        btn.style.color = '#10b981';
+        BEYTI_COMMON.showToast('تم إرفاق التسجيل الصوتي بنجاح!', 'fa-microphone');
+      }, 2000);
+    }
+
+    function handleOrderSubmit(e) {
+      e.preventDefault();
+      const activeChip = document.querySelector('#serviceChips .pill-btn.active');
+      const serviceName = activeChip ? activeChip.textContent.trim() : 'خدمة منزلية';
+      const district = document.getElementById('orderDistrict').value;
+      const landmark = document.getElementById('orderLandmark').value;
+
+      localStorage.setItem('beyti_last_order', JSON.stringify({
+        service: serviceName,
+        district: district,
+        landmark: landmark,
+        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        id: '#BYT-' + Math.floor(1000 + Math.random() * 9000)
+      }));
+
+      BEYTI_COMMON.showToast('تم إرسال وتأكيد الطلب! الفني في الطريق إليك...', 'fa-bolt');
+
+      setTimeout(() => {
+        window.location.href = 'tracking.html';
+      }, 800);
+    }
+  </script>
+</body>
+
+</html>
+

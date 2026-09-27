@@ -1,0 +1,428 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>الرئيسية | بيتي للخدمات المنزلية - نواكشوط</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Desktop Presentation Controls -->
+  <aside class="desktop-dock" id="desktopDock">
+    <div class="dock-brand">
+      <img src="assets/puffy_house.jpg" alt="Beyti Logo" class="dock-logo">
+      <div class="dock-info">
+        <span class="dock-title">بيتي | Beyti Service</span>
+        <span class="dock-tag" data-ar="الرئيسية • الخدمات المنزلية" data-fr="Accueil • Services à Domicile">الرئيسية • الخدمات المنزلية</span>
+      </div>
+    </div>
+    <div class="dock-actions">
+      <a href="index.html" class="dock-btn" title="صفحة المشروع التعريفية">
+        <i class="fa-solid fa-circle-info"></i> <span data-ar="عن المشروع" data-fr="À Propos">عن المشروع</span>
+      </a>
+      <button class="dock-btn active" id="btnPhoneView">
+        <i class="fa-solid fa-mobile-screen"></i> <span data-ar="شاشة الهاتف" data-fr="Mode Mobile">شاشة الهاتف</span>
+      </button>
+      <button class="dock-btn" id="btnFullView">
+        <i class="fa-solid fa-expand"></i> <span data-ar="كامل الشاشة" data-fr="Plein Écran">كامل الشاشة</span>
+      </button>
+      <button class="dock-btn lang-toggle" id="dockLangBtn">
+        <i class="fa-solid fa-globe"></i> <span id="dockLangLabel">Français</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- App Viewport -->
+  <div class="app-viewport-wrapper">
+    <main class="mobile-phone-frame" id="phoneFrame">
+
+      <!-- Notch & Dynamic Island -->
+      <div class="phone-notch">
+        <div class="dynamic-island">
+          <span class="island-dot pulse"></span>
+          <span data-ar="بيتي • خدمة فورية 24/7" data-fr="Beyti • Disponible 24/7">بيتي • خدمة فورية 24/7</span>
+        </div>
+      </div>
+
+      <!-- Status Bar -->
+      <header class="app-status-bar">
+        <span class="status-time" id="statusClock">12:45</span>
+        <div class="status-icons">
+          <i class="fa-solid fa-signal"></i>
+          <i class="fa-solid fa-wifi"></i>
+          <i class="fa-solid fa-battery-full"></i>
+        </div>
+      </header>
+
+      <!-- App Header Nav -->
+      <nav class="app-header-nav">
+        <div class="brand-row">
+          <div class="brand-meta">
+            <a href="index.html"><img src="assets/puffy_house.jpg" alt="بيتي - Beyti" class="app-logo-img"></a>
+            <div class="brand-text">
+              <h1 class="brand-name">بيتي <span>Service</span></h1>
+              <p class="brand-city"><i class="fa-solid fa-location-dot"></i> <span data-ar="نواكشوط، موريتانيا" data-fr="Nouakchott, Mauritanie">نواكشوط، موريتانيا</span></p>
+            </div>
+          </div>
+          <div class="header-actions">
+            <button class="icon-chip lang-chip" id="langSwitchBtn">
+              <i class="fa-solid fa-language"></i>
+              <span id="currentLangTag">FR</span>
+            </button>
+            <a href="profile.html" class="icon-chip" style="overflow: hidden; padding: 2px;">
+              <img src="assets/niqabi_avatar.jpg" alt="Profile" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+            </a>
+          </div>
+        </div>
+
+        <!-- Moughataa District Selector -->
+        <div class="moughataa-selector-bar">
+          <div class="location-pill-3d">
+            <i class="fa-solid fa-compass pulse-icon"></i>
+            <span style="font-weight: 700;" data-ar="المقاطعة:" data-fr="Zone :">المقاطعة:</span>
+            <select id="moughataaSelect" class="moughataa-dropdown">
+              <option value="tevragh-zeina" selected>تفرغ زينة (Tevragh-Zeina)</option>
+              <option value="ksar">لكصر (Ksar)</option>
+              <option value="arafat">عرفات (Arafat)</option>
+              <option value="teyarett">تيارت (Teyarett)</option>
+              <option value="dar-naim">دار النعيم (Dar-Naim)</option>
+              <option value="toujounine">توجنين (Toujounine)</option>
+              <option value="riad">الرياض (Riad)</option>
+              <option value="sebkha">السبخة (Sebkha)</option>
+              <option value="el-mina">الميناء (El Mina)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Search Input -->
+        <div class="search-section-3d">
+          <div class="search-input-wrap">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="serviceSearchInput" placeholder="ابحث عن سباك، كهربائي، تنظيف، ميرة..." data-ar="ابحث عن سباك، كهربائي، تنظيف، ميرة..." data-fr="Rechercher plombier, électricien, nettoyage, courses...">
+            <a href="order.html" class="filter-badge-btn" title="طلب فوري"><i class="fa-solid fa-bolt"></i></a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Scroll Body -->
+      <div class="app-scroll-body">
+
+        <!-- 3D Hero Card -->
+        <section class="hero-3d-card">
+          <div class="hero-badge-pill">
+            <span class="live-dot"></span>
+            <span data-ar="المنصة الأولى المعتمدة في موريتانيا" data-fr="1ère Plateforme Agréée en Mauritanie">المنصة الأولى المعتمدة في موريتانيا</span>
+          </div>
+          <h2 class="hero-title" data-ar="بيتك بأمان مع أفضل حرفيي نواكشوط" data-fr="Votre maison entre de bonnes mains">بيتك بأمان مع أفضل حرفيي نواكشوط</h2>
+          <p class="hero-desc" data-ar="احجز أفضل الفنيين المعتمدين، قارن الأسعار بشفافية (400 MRU)، واستجابة سريعة في 30 دقيقة." data-fr="Réservez des techniciens certifiés, comparez les prix (400 MRU) et intervention en 30 min.">احجز أفضل الفنيين المعتمدين، قارن الأسعار بشفافية (400 MRU)، واستجابة سريعة في 30 دقيقة.</p>
+
+          <div class="hero-btn-row">
+            <a href="order.html" class="btn-3d btn-glow-primary">
+              <i class="fa-solid fa-bolt"></i> <span data-ar="طلب فوري (30 دقيقة)" data-fr="Demande Express">طلب فوري (30 دقيقة)</span>
+            </a>
+            <a href="order.html?service=meera" class="btn-3d btn-glass">
+              <i class="fa-solid fa-basket-shopping"></i> <span data-ar="طلب ميرة" data-fr="Courses & Provisions">طلب ميرة</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- 3 Highlight Features Linked to Dedicated Pages -->
+        <section>
+          <div class="section-title-row" style="margin-bottom: 10px;">
+            <h3 class="section-heading" data-ar="مميزات بيتي الحصرية" data-fr="Avantages Exclusifs">مميزات بيتي الحصرية</h3>
+          </div>
+          <div class="features-ticker-3d" style="grid-template-columns: repeat(3, 1fr); gap: 8px;">
+            <!-- 1. تغطية شاملة -->
+            <a href="coverage.html" class="ticker-chip" style="flex-direction: column; text-align: center; padding: 12px 6px;">
+              <i class="fa-solid fa-map-location-dot" style="margin: 0 auto; color: #3b82f6;"></i>
+              <div>
+                <strong data-ar="تغطية شاملة" data-fr="Couverture">تغطية شاملة</strong>
+                <small data-ar="9 مقاطعات" data-fr="9 zones">9 مقاطعات</small>
+              </div>
+            </a>
+            <!-- 2. مقارنة العروض -->
+            <a href="compare.html" class="ticker-chip" style="flex-direction: column; text-align: center; padding: 12px 6px;">
+              <i class="fa-solid fa-scale-balanced" style="margin: 0 auto; color: #10b981;"></i>
+              <div>
+                <strong data-ar="مقارنة العروض" data-fr="Comparer">مقارنة العروض</strong>
+                <small data-ar="أسعار شفافة" data-fr="Prix clairs">أسعار شفافة</small>
+              </div>
+            </a>
+            <!-- 3. تقييم موثق -->
+            <a href="reviews.html" class="ticker-chip" style="flex-direction: column; text-align: center; padding: 12px 6px;">
+              <i class="fa-solid fa-award" style="margin: 0 auto; color: #f59e0b;"></i>
+              <div>
+                <strong data-ar="تقييم موثق" data-fr="Avis Vérifiés">تقييم موثق</strong>
+                <small data-ar="4.9/5 نجوم" data-fr="4.9/5 étoiles">4.9/5 نجوم</small>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- Active Tracker Preview Teaser -->
+        <section class="active-order-preview-card">
+          <div class="order-preview-header">
+            <div class="order-pulse-indicator">
+              <span class="ping-circle"></span>
+              <span class="ping-core"></span>
+            </div>
+            <div class="order-header-info">
+              <span class="order-state-tag" data-ar="فني سباكة معتمد في الطريق" data-fr="Technicien en route">فني سباكة معتمد في الطريق</span>
+              <strong class="order-serv-name">إصلاح تسريب مياه • تفرغ زينة</strong>
+            </div>
+            <a href="tracking.html" class="track-btn-mini">
+              <span data-ar="تتبع مباشر" data-fr="Suivre">تتبع مباشر</span> <i class="fa-solid fa-arrow-left flip-ltr"></i>
+            </a>
+          </div>
+          <div class="order-progress-track">
+            <div class="progress-bar-fill" style="width: 65%;"></div>
+          </div>
+          <div class="order-eta-row">
+            <small><i class="fa-regular fa-clock"></i> <span data-ar="الوصول المتوقع:" data-fr="Arrivée :">الوصول:</span> <strong>11 دقيقة</strong></small>
+            <small><i class="fa-solid fa-user-check"></i> سيدي محمد البشير (4.9 ★)</small>
+          </div>
+        </section>
+
+        <!-- The 6 Core 3D Service Cards -->
+        <section>
+          <div class="section-title-row" style="margin-bottom: 12px;">
+            <div>
+              <h3 class="section-heading" data-ar="خدماتنا الجوهرية" data-fr="Nos Services Principaux">خدماتنا الجوهرية</h3>
+              <p class="section-subheading" data-ar="اختر الخدمة لحجز فني مؤهل فوراً" data-fr="Choisissez un service pour réservation immédiate">اختر الخدمة لحجز فني مؤهل فوراً</p>
+            </div>
+            <span class="badge-count" data-ar="6 خدمات" data-fr="6 Services">6 خدمات</span>
+          </div>
+
+          <div class="services-grid-3d">
+            <!-- 1. Cleaning -->
+            <article class="service-card-3d" onclick="window.location.href='order.html?service=cleaning'">
+              <div class="card-top-icon clean-gradient"><i class="fa-solid fa-broom"></i></div>
+              <div>
+                <span class="card-category" data-ar="نظافة متكاملة" data-fr="Nettoyage">نظافة متكاملة</span>
+                <h4 class="card-title" data-ar="التنظيف (Nettoyage)" data-fr="Nettoyage Complet">التنظيف (Nettoyage)</h4>
+                <p class="card-desc" data-ar="تنظيف منازل وشقق ومكاتب بأحدث معدات التعقيم." data-fr="Ménage complet, désinfection et lavage tapis.">تنظيف منازل وشقق ومكاتب بأحدث معدات التعقيم.</p>
+              </div>
+              <div class="card-meta">
+                <span class="price-estimate"><span data-ar="من" data-fr="Dès">من</span> <strong>400 MRU</strong></span>
+                <span class="rating-mini"><i class="fa-solid fa-star"></i> 4.9</span>
+              </div>
+              <a href="order.html?service=cleaning" class="btn-card-action">
+                <span data-ar="طلب فوري" data-fr="Réserver">طلب فوري</span> <i class="fa-solid fa-chevron-left flip-ltr"></i>
+              </a>
+            </article>
+
+            <!-- 2. Plumbing -->
+            <article class="service-card-3d" onclick="window.location.href='order.html?service=plumbing'">
+              <div class="card-top-icon plumb-gradient"><i class="fa-solid fa-faucet-drip"></i></div>
+              <div>
+                <span class="card-category" data-ar="مياه وتسريبات" data-fr="Plomberie">مياه وتسريبات</span>
+                <h4 class="card-title" data-ar="السباكة (Plomberie)" data-fr="Plomberie & Fuites">السباكة (Plomberie)</h4>
+                <p class="card-desc" data-ar="إصلاح التسريبات وصيانة الخزانات وسخانات المياه." data-fr="Réparation fuites d'eau et chauffe-eau.">إصلاح التسريبات وصيانة الخزانات وسخانات المياه.</p>
+              </div>
+              <div class="card-meta">
+                <span class="price-estimate"><span data-ar="من" data-fr="Dès">من</span> <strong>350 MRU</strong></span>
+                <span class="rating-mini"><i class="fa-solid fa-star"></i> 4.9</span>
+              </div>
+              <a href="order.html?service=plumbing" class="btn-card-action">
+                <span data-ar="طلب فوري" data-fr="Réserver">طلب فوري</span> <i class="fa-solid fa-chevron-left flip-ltr"></i>
+              </a>
+            </article>
+
+            <!-- 3. Electricity -->
+            <article class="service-card-3d" onclick="window.location.href='order.html?service=electricity'">
+              <div class="card-top-icon electric-gradient"><i class="fa-solid fa-bolt-lightning"></i></div>
+              <div>
+                <span class="card-category" data-ar="أعطال وتمديدات" data-fr="Électricité">أعطال وتمديدات</span>
+                <h4 class="card-title" data-ar="الكهرباء (Électricité)" data-fr="Électricité Générale">الكهرباء (Électricité)</h4>
+                <p class="card-desc" data-ar="فحص القواطع، صيانة الإضاءة والمولدات والأنظمة." data-fr="Dépannage court-circuit, éclairage et tableaux.">فحص القواطع، صيانة الإضاءة والمولدات والأنظمة.</p>
+              </div>
+              <div class="card-meta">
+                <span class="price-estimate"><span data-ar="من" data-fr="Dès">من</span> <strong>400 MRU</strong></span>
+                <span class="rating-mini"><i class="fa-solid fa-star"></i> 4.8</span>
+              </div>
+              <a href="order.html?service=electricity" class="btn-card-action">
+                <span data-ar="طلب فوري" data-fr="Réserver">طلب فوري</span> <i class="fa-solid fa-chevron-left flip-ltr"></i>
+              </a>
+            </article>
+
+            <!-- 4. Maintenance -->
+            <article class="service-card-3d" onclick="window.location.href='order.html?service=maintenance'">
+              <div class="card-top-icon maint-gradient"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+              <div>
+                <span class="card-category" data-ar="صيانة وترميم" data-fr="Entretien">صيانة وترميم</span>
+                <h4 class="card-title" data-ar="الصيانة (Maintenance)" data-fr="Maintenance & Climatisation">الصيانة (Maintenance)</h4>
+                <p class="card-desc" data-ar="صيانة المكيفات والأجهزة الكهرومنزلية والنجارة." data-fr="Réparation climatiseurs, électroménager et meubles.">صيانة المكيفات والأجهزة الكهرومنزلية والنجارة.</p>
+              </div>
+              <div class="card-meta">
+                <span class="price-estimate"><span data-ar="من" data-fr="Dès">من</span> <strong>450 MRU</strong></span>
+                <span class="rating-mini"><i class="fa-solid fa-star"></i> 4.9</span>
+              </div>
+              <a href="order.html?service=maintenance" class="btn-card-action">
+                <span data-ar="طلب فوري" data-fr="Réserver">طلب فوري</span> <i class="fa-solid fa-chevron-left flip-ltr"></i>
+              </a>
+            </article>
+
+            <!-- 5. Transport -->
+            <article class="service-card-3d" onclick="window.location.href='order.html?service=transport'">
+              <div class="card-top-icon trans-gradient"><i class="fa-solid fa-truck-ramp-box"></i></div>
+              <div>
+                <span class="card-category" data-ar="نقل وترحيل" data-fr="Déménagement">نقل وترحيل</span>
+                <h4 class="card-title" data-ar="النقل (Transport)" data-fr="Transport & Déménagement">النقل (Transport)</h4>
+                <p class="card-desc" data-ar="ترحيل أثاث وبضائع بين مقاطعات نواكشوط بأمان." data-fr="Déménagement sécurisé et transport de meubles.">ترحيل أثاث وبضائع بين مقاطعات نواكشوط بأمان.</p>
+              </div>
+              <div class="card-meta">
+                <span class="price-estimate"><span data-ar="من" data-fr="Dès">من</span> <strong>600 MRU</strong></span>
+                <span class="rating-mini"><i class="fa-solid fa-star"></i> 4.8</span>
+              </div>
+              <a href="order.html?service=transport" class="btn-card-action">
+                <span data-ar="طلب فوري" data-fr="Réserver">طلب فوري</span> <i class="fa-solid fa-chevron-left flip-ltr"></i>
+              </a>
+            </article>
+
+            <!-- 6. Special Meera Card (Full Width) -->
+            <article class="service-card-3d special-meera-card" onclick="window.location.href='order.html?service=meera'">
+              <div class="meera-banner-row">
+                <img src="assets/meera.jpg" alt="طلب ميرة" class="meera-thumb">
+                <div style="flex: 1;">
+                  <span class="card-category" style="color: #f97316;" data-ar="توصيل المؤونة والبقالة" data-fr="Courses & Marché">توصيل المؤونة والبقالة</span>
+                  <h4 class="card-title" data-ar="طلب ميرة (Courses & Meera)" data-fr="Service Meera (Courses)">طلب ميرة (Courses & Meera)</h4>
+                  <p class="card-desc" data-ar="مندوب يتسوق لك من سوق العاصمة أو البقالات ويسلمها لبابك مع فاتورة الشراء." data-fr="Un coursier fait vos courses au marché et livre avec facture.">مندوب يتسوق لك من سوق العاصمة أو البقالات ويسلمها لبابك مع فاتورة الشراء.</p>
+                </div>
+              </div>
+              <div class="card-meta">
+                <span class="price-estimate" style="font-size: 0.72rem; color: #c2410c;"><i class="fa-solid fa-receipt"></i> <span data-ar="فاتورة رسمية + رسوم توصيل رمزية" data-fr="Facture d'achat + frais minimes">فاتورة رسمية + رسوم رمزية</span></span>
+                <span class="rating-mini"><i class="fa-solid fa-fire" style="color: #f97316;"></i> حصرية</span>
+              </div>
+              <a href="order.html?service=meera" class="btn-card-action" style="background: linear-gradient(150deg, #fb923c, #ea580c);">
+                <span data-ar="طلب ميرة الآن" data-fr="Commander Meera">طلب ميرة الآن</span> <i class="fa-solid fa-chevron-left flip-ltr"></i>
+              </a>
+            </article>
+          </div>
+        </section>
+
+        <!-- Top Available Providers Teaser -->
+        <section class="puffy-card">
+          <div class="section-title-row" style="margin-bottom: 12px;">
+            <div>
+              <h3 class="section-heading" data-ar="أبرز الفنيين المتاحين الآن" data-fr="Artisans Disponibles">أبرز الفنيين المتاحين الآن</h3>
+              <p class="section-subheading" data-ar="ضمن فريق الـ 29 عاملاً المؤهلين في نواكشوط" data-fr="Parmi nos 29 professionnels qualifiés">ضمن فريق الـ 29 عاملاً المؤهلين</p>
+            </div>
+            <a href="providers.html" class="badge-count" style="text-decoration: none;" data-ar="عرض الكل (29)" data-fr="Voir Tout (29)">عرض الكل (29)</a>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <!-- Tech 1 -->
+            <div class="provider-card-3d">
+              <div class="provider-header">
+                <img src="assets/puffy_artisan.jpg" alt="سيدي محمد" class="provider-avatar">
+                <div class="provider-info">
+                  <div class="provider-name-row">
+                    <span class="provider-name">سيدي محمد البشير</span>
+                    <span class="provider-rating"><i class="fa-solid fa-star"></i> 4.95</span>
+                  </div>
+                  <span class="provider-craft">سباكة وإصلاح تسريبات • تفرغ زينة</span>
+                  <div class="provider-badges-row">
+                    <span class="micro-badge">معتمد من بيتي</span>
+                    <span class="micro-badge">650+ مهمة</span>
+                  </div>
+                </div>
+              </div>
+              <div class="provider-footer">
+                <span class="provider-price">400 MRU</span>
+                <div class="provider-actions">
+                  <a href="order.html?tech=sidi" class="btn-card-action" style="padding: 6px 14px; width: auto;" data-ar="طلب الفني" data-fr="Choisir">طلب الفني</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tech 2 -->
+            <div class="provider-card-3d">
+              <div class="provider-header">
+                <img src="assets/hero.jpg" alt="أحمدو فال" class="provider-avatar">
+                <div class="provider-info">
+                  <div class="provider-name-row">
+                    <span class="provider-name">أحمدو ولد فال</span>
+                    <span class="provider-rating"><i class="fa-solid fa-star"></i> 4.88</span>
+                  </div>
+                  <span class="provider-craft">كهربائي معتمد وتكييف • لكصر</span>
+                  <div class="provider-badges-row">
+                    <span class="micro-badge">استجابة 15 دقيقة</span>
+                    <span class="micro-badge">420+ مهمة</span>
+                  </div>
+                </div>
+              </div>
+              <div class="provider-footer">
+                <span class="provider-price">450 MRU</span>
+                <div class="provider-actions">
+                  <a href="order.html?tech=ahmedou" class="btn-card-action" style="padding: 6px 14px; width: auto;" data-ar="طلب الفني" data-fr="Choisir">طلب الفني</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Emergency 15-Minute Call Box -->
+        <section class="emergency-box-3d">
+          <div class="emergency-icon-wrap"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          <div class="emergency-text">
+            <h4 data-ar="طوارئ منزلية عاجلة؟" data-fr="Urgence à Domicile ?">طوارئ منزلية عاجلة؟</h4>
+            <p data-ar="تسرب مياه حاد، التماس كهربائي أو عطل مباغت؟ إرسال فني في 15 دقيقة." data-fr="Fuite grave, court-circuit ? Envoi d'un technicien en 15 min.">تسرب مياه حاد، التماس كهربائي أو عطل مباغت؟ إرسال فني في 15 دقيقة.</p>
+          </div>
+          <a href="tel:+22245000000" class="btn-emergency-call" onclick="BEYTI_COMMON.showToast('جاري الاتصال بفرق الطوارئ الفورية...');">
+            <i class="fa-solid fa-phone"></i> <span data-ar="طوارئ" data-fr="Urgence">طوارئ</span>
+          </a>
+        </section>
+
+      </div> <!-- /app-scroll-body -->
+
+      <!-- Fixed 5-Tab Bottom Dock Navigation Bar -->
+      <nav class="bottom-dock-nav" aria-label="Bottom Navigation">
+        <a href="home.html" class="nav-tab-btn active">
+          <div class="tab-icon-wrap"><i class="fa-solid fa-house"></i></div>
+          <span class="tab-label" data-ar="الرئيسية" data-fr="Accueil">الرئيسية</span>
+        </a>
+
+        <a href="providers.html" class="nav-tab-btn">
+          <div class="tab-icon-wrap"><i class="fa-solid fa-users-gear"></i></div>
+          <span class="tab-label" data-ar="الموردون" data-fr="Artisans">الموردون</span>
+        </a>
+
+        <!-- Center Highlighted Action Button: طلب فوري -->
+        <a href="order.html" class="nav-tab-center-btn" aria-label="طلب فوري">
+          <div class="center-btn-orb"><i class="fa-solid fa-bolt"></i></div>
+          <span class="center-btn-label" data-ar="طلب فوري" data-fr="Express">طلب فوري</span>
+        </a>
+
+        <a href="tracking.html" class="nav-tab-btn">
+          <div class="tab-icon-wrap"><i class="fa-solid fa-location-crosshairs"></i></div>
+          <span class="tab-label" data-ar="التتبع" data-fr="Suivi">التتبع</span>
+        </a>
+
+        <a href="profile.html" class="nav-tab-btn">
+          <div class="tab-icon-wrap"><i class="fa-solid fa-user"></i></div>
+          <span class="tab-label" data-ar="ملفي وطلباتي" data-fr="Profil">ملفي وطلباتي</span>
+        </a>
+      </nav>
+
+      <!-- Bottom Phone Indicator Bar -->
+      <div class="phone-home-indicator"></div>
+
+    </main>
+  </div>
+
+  <div class="toast-hub" id="toastHub"></div>
+  <script src="common.js"></script>
+</body>
+
+</html>
+

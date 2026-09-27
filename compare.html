@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>مقارنة العروض والأسعار | بيتي - نواكشوط</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <aside class="desktop-dock" id="desktopDock">
+    <div class="dock-brand">
+      <img src="assets/puffy_house.jpg" alt="Beyti Logo" class="dock-logo">
+      <div class="dock-info">
+        <span class="dock-title">بيتي | Beyti Service</span>
+        <span class="dock-tag" data-ar="مقارنة الأسعار والعروض" data-fr="Comparateur d'Offres">مقارنة الأسعار والعروض</span>
+      </div>
+    </div>
+    <div class="dock-actions">
+      <a href="home.html" class="dock-btn"><i class="fa-solid fa-house"></i> <span>الرئيسية</span></a>
+      <button class="dock-btn active" id="btnPhoneView"><i class="fa-solid fa-mobile-screen"></i> <span>الهاتف</span></button>
+      <button class="dock-btn" id="btnFullView"><i class="fa-solid fa-expand"></i> <span>كامل</span></button>
+      <button class="dock-btn lang-toggle" id="dockLangBtn"><i class="fa-solid fa-globe"></i> <span id="dockLangLabel">Français</span></button>
+    </div>
+  </aside>
+
+  <div class="app-viewport-wrapper">
+    <main class="mobile-phone-frame" id="phoneFrame">
+
+      <div class="phone-notch">
+        <div class="dynamic-island">
+          <span class="island-dot pulse"></span>
+          <span data-ar="وفر حتى 35% مع بيتي" data-fr="Économisez jusqu'à 35% avec Baiti">وفر حتى 35% مع بيتي</span>
+        </div>
+      </div>
+
+      <header class="app-status-bar">
+        <span class="status-time" id="statusClock">12:45</span>
+        <div class="status-icons">
+          <i class="fa-solid fa-signal"></i>
+          <i class="fa-solid fa-wifi"></i>
+          <i class="fa-solid fa-battery-full"></i>
+        </div>
+      </header>
+
+      <nav class="app-header-nav">
+        <div class="brand-row">
+          <div class="brand-meta">
+            <a href="home.html"><img src="assets/puffy_house.jpg" alt="بيتي" class="app-logo-img"></a>
+            <div class="brand-text">
+              <h1 class="brand-name" data-ar="مقارنة العروض" data-fr="Comparateur d'Offres">مقارنة العروض</h1>
+              <p class="brand-city"><i class="fa-solid fa-scale-balanced" style="color: #10b981;"></i> <span data-ar="الشفافية المطلقة في الأسعار" data-fr="Transparence des Prix">الشفافية المطلقة في الأسعار</span></p>
+            </div>
+          </div>
+          <div class="header-actions">
+            <button class="icon-chip lang-chip" id="langSwitchBtn">
+              <i class="fa-solid fa-language"></i>
+              <span id="currentLangTag">FR</span>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      <div class="app-scroll-body">
+
+        <!-- Intro -->
+        <section class="puffy-card" style="text-align: center;">
+          <h3 class="section-heading" data-ar="لماذا «بيتي» هو الخيار الأوفر والأضمن؟" data-fr="Pourquoi choisir Baiti ?">لماذا «بيتي» هو الخيار الأوفر والأضمن؟</h3>
+          <p style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 6px;"
+            data-ar="بناءً على دراستنا الميدانية في نواكشوط، يتكبد المستهلك أسعاراً مبالغاً فيها في السوق غير المنظم دون أي ضمان."
+            data-fr="Notre étude à Nouakchott prouve que le marché informel impose des prix élevés sans garantie.">
+            بناءً على دراستنا الميدانية في نواكشوط، يتكبد المستهلك أسعاراً مبالغاً فيها في السوق غير المنظم دون أي ضمان.
+          </p>
+        </section>
+
+        <!-- Detailed Comparison Matrix -->
+        <section class="puffy-card" style="padding: 16px 12px;">
+          
+          <!-- Metric 1: Price -->
+          <div style="margin-bottom: 16px; border-bottom: 1px solid #e2effe; padding-bottom: 14px;">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <i class="fa-solid fa-coins" style="color: #f59e0b;"></i>
+              <strong style="font-size: 0.88rem; color: var(--puffy-navy-dark);" data-ar="الأسعار والشفافية" data-fr="Tarification & Transparence">الأسعار والشفافية</strong>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <div style="background: #ecfdf5; border: 1.5px solid #a7f3d0; border-radius: var(--radius-md); padding: 10px;">
+                <span class="micro-badge" style="background: #10b981; color: #fff;">تطبيق بيتي</span>
+                <strong style="display: block; font-size: 0.82rem; color: #065f46; margin-top: 4px;">400 MRU تقريبي مسبق</strong>
+                <p style="font-size: 0.68rem; color: #047857;">أسعار محددة ومدروسة بدون مساومة أو استغلال للأعطال.</p>
+              </div>
+
+              <div style="background: #fef2f2; border: 1.5px solid #fecaca; border-radius: var(--radius-md); padding: 10px;">
+                <span class="micro-badge" style="background: #ef4444; color: #fff;">السوق والمنافس Hemi</span>
+                <strong style="display: block; font-size: 0.82rem; color: #991b1b; margin-top: 4px;">700 - 1200 MRU</strong>
+                <p style="font-size: 0.68rem; color: #b91c1c;">أسعار غير معلنة وتتغير حسب الحي والمظهر والوقت.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Metric 2: Speed -->
+          <div style="margin-bottom: 16px; border-bottom: 1px solid #e2effe; padding-bottom: 14px;">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <i class="fa-solid fa-stopwatch" style="color: #ef4444;"></i>
+              <strong style="font-size: 0.88rem; color: var(--puffy-navy-dark);" data-ar="سرعة الاستجابة للطوارئ" data-fr="Rapidité d'intervention">سرعة الاستجابة للطوارئ</strong>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <div style="background: #ecfdf5; border: 1.5px solid #a7f3d0; border-radius: var(--radius-md); padding: 10px;">
+                <span class="micro-badge" style="background: #10b981; color: #fff;">تطبيق بيتي</span>
+                <strong style="display: block; font-size: 0.82rem; color: #065f46; margin-top: 4px;">15 - 30 دقيقة</strong>
+                <p style="font-size: 0.68rem; color: #047857;">توجيه آلي لأقرب فني من فريق الـ 29 مع تتبع GPS.</p>
+              </div>
+
+              <div style="background: #fef2f2; border: 1.5px solid #fecaca; border-radius: var(--radius-md); padding: 10px;">
+                <span class="micro-badge" style="background: #ef4444; color: #fff;">السوق التقليدي</span>
+                <strong style="display: block; font-size: 0.82rem; color: #991b1b; margin-top: 4px;">ساعات أو في الغد</strong>
+                <p style="font-size: 0.68rem; color: #b91c1c;">تأخير وعود غير دقيقة وإضاعة وقت أفراد الأسرة.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Metric 3: Guarantee -->
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <i class="fa-solid fa-shield-halved" style="color: #3b82f6;"></i>
+              <strong style="font-size: 0.88rem; color: var(--puffy-navy-dark);" data-ar="الضمان والأمان" data-fr="Garantie & Sécurité">الضمان والأمان</strong>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <div style="background: #ecfdf5; border: 1.5px solid #a7f3d0; border-radius: var(--radius-md); padding: 10px;">
+                <span class="micro-badge" style="background: #10b981; color: #fff;">تطبيق بيتي</span>
+                <strong style="display: block; font-size: 0.82rem; color: #065f46; margin-top: 4px;">ضمان موثق 30 يوماً</strong>
+                <p style="font-size: 0.68rem; color: #047857;">إعادة الصيانة مجاناً + حماية خصوصية العائلات.</p>
+              </div>
+
+              <div style="background: #fef2f2; border: 1.5px solid #fecaca; border-radius: var(--radius-md); padding: 10px;">
+                <span class="micro-badge" style="background: #ef4444; color: #fff;">السوق التقليدي</span>
+                <strong style="display: block; font-size: 0.82rem; color: #991b1b; margin-top: 4px;">معدوم تماماً (0)</strong>
+                <p style="font-size: 0.68rem; color: #b91c1c;">لا يمكن التواصل مع الفني مجدداً في حال تجدد العطل.</p>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- CTA Order -->
+        <a href="order.html" class="btn-3d btn-glow-primary" style="padding: 14px; width: 100%; font-size: 0.95rem;">
+          <i class="fa-solid fa-bolt"></i> <span data-ar="احجز الآن بأفضل سعر مضمون" data-fr="Commander au Meilleur Prix">احجز الآن بأفضل سعر مضمون</span>
+        </a>
+
+      </div> <!-- /app-scroll-body -->
+
+      <!-- Fixed 5-Tab Bottom Dock Nav -->
+      <nav class="bottom-dock-nav" aria-label="Bottom Navigation">
+        <a href="home.html" class="nav-tab-btn">
+          <div class="tab-icon-wrap"><i class="fa-solid fa-house"></i></div>
+          <span class="tab-label" data-ar="الرئيسية" data-fr="Accueil">الرئيسية</span>
+        </a>
+        <a href="providers.html" class="nav-tab-btn">
+          <div class="tab-icon-wrap"><i class="fa-solid fa-users-gear"></i></div>
+          <span class="tab-label" data-ar="الموردون" data-fr="Artisans">الموردون</span>
+        </a>
+        <a href="order.html" class="nav-tab-center-btn" aria-label="طلب فوري">
+          <div class="center-btn-orb"><i class="fa-solid fa-bolt"></i></div>
+          <span class="center-btn-label" data-ar="طلب فوري" data-fr="Express">طلب فوري</span>
+        </a>
+        <a href="tracking.html" class="nav-tab-btn">
+          <div class="tab-icon-wrap"><i class="fa-solid fa-location-crosshairs"></i></div>
+          <span class="tab-label" data-ar="التتبع" data-fr="Suivi">التتبع</span>
+        </a>
+        <a href="profile.html" class="nav-tab-btn">
+          <div class="tab-icon-wrap"><i class="fa-solid fa-user"></i></div>
+          <span class="tab-label" data-ar="ملفي وطلباتي" data-fr="Profil">ملفي وطلباتي</span>
+        </a>
+      </nav>
+
+      <div class="phone-home-indicator"></div>
+    </main>
+  </div>
+
+  <div class="toast-hub" id="toastHub"></div>
+  <script src="common.js"></script>
+</body>
+
+</html>
+
